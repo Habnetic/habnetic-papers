@@ -249,7 +249,7 @@ $$
 
 ### Computational implementation
 
-All analyses are implemented in Python using PyMC for Bayesian inference and ArviZ for posterior diagnostics. The full analysis pipeline and figure generation scripts are provided in the accompanying repository to ensure reproducibility.
+All analyses are implemented in Python using PyMC for Bayesian inference and ArviZ for posterior diagnostics. The analysis pipeline, data preparation scripts, and manuscript sources are available in open repositories to support reproducibility.
 
 ---
 

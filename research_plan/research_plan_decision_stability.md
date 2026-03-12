@@ -55,9 +55,7 @@ Hazard is conceptualised as a probabilistic input signal informed by long-term p
 
 Bayesian inference yields a joint posterior over model parameters and latent hazard states. Posterior predictive impact quantities are derived from this joint distribution. Decision quantities are computed as functionals of posterior draws.
 
-![Hierarchical exposure–hazard–impact model](phase1_rtm_decision_stability/figures/fig01_graphical_model.png)
-
-In the current empirical phase, hazard intensity is approximated by an observed precipitation-derived proxy. This corresponds to a simplified instantiation of the conceptual model in which hazard uncertainty is not yet explicitly modelled.
+![Hierarchical exposure–hazard–impact model](figures/fig01_graphical_model.png)
 
 # 4. Model Specification Outline
 
@@ -85,7 +83,7 @@ Decision-stability metrics include:
 
 Decision stability is thus quantified directly from posterior draws rather than inferred from point estimates with post-hoc resampling.
 
-![Decision stability concept](phase1_rtm_decision_stability/figures/fig02_decision_stability_concept.png)
+![Decision stability concept](figures/fig02_decision_stability_concept.png)
 
 Wide rank distributions indicate instability under epistemic uncertainty. High top-k probabilities indicate robust prioritisation membership.
 
@@ -95,7 +93,7 @@ To examine structural robustness, the model is applied to two additional cities 
 
 Changes in posterior uncertainty and ranking stability under domain shift are analysed. Expansion of ranking variability indicates sensitivity of prioritisation stability to contextual differences.
 
-![Domain-shift stress test concept](phase1_rtm_decision_stability/figures/fig03_domain_shift_illustrative.png)
+![Domain-shift stress test concept](figures/fig03_domain_shift_illustrative.png)
 
 Increasing posterior rank standard deviation under domain shift reflects structural stress within the generative specification.
 
@@ -118,6 +116,8 @@ The reference city is Rotterdam. The empirical dataset includes:
 - Posterior predictive impact simulation
 - Ranking functional computation
 
+All modelling code, data-processing scripts, and figure generation pipelines are maintained in open repositories to support transparency and reproducibility of the framework.
+
 # 8. Expected Contributions
 
 ## Methodological Contributions
@@ -139,7 +139,7 @@ The framework reframes urban pluvial risk modelling from loss estimation toward 
 ## Phase 1 — Baseline probabilistic pipeline (completed)
 February–March 2026
 
-- Finalise Rotterdam exposure–hazard–impact dataset derived from the existing spatial pipeline
+- Finalise Rotterdam exposure–hazard–impact dataset derived from the previously constructed spatial data pipeline
 - Implement Bayesian baseline model
 - Compute posterior decision stability metrics
 - Produce methodological baseline manuscript
