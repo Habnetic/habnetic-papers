@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.19)  19 MAR 2026 12:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.19)  22 MAR 2026 22:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,7 +513,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 {C:/Users/C.Price/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/C.
 Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-27.
+25.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -524,34 +524,34 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: figures/fig01_graphical_model.png Graphic file (type png)
 <use figures/fig01_graphical_model.png>
 Package pdftex.def Info: figures/fig01_graphical_model.png  used on input line 
-230.
+228.
 (pdftex.def)             Requested size: 605.38022pt x 281.85231pt.
 <figures/fig02_decision_stability_concept.png, id=23, 586.3506pt x 514.0806pt>
 File: figures/fig02_decision_stability_concept.png Graphic file (type png)
 <use figures/fig02_decision_stability_concept.png>
 Package pdftex.def Info: figures/fig02_decision_stability_concept.png  used on 
-input line 242.
+input line 240.
 (pdftex.def)             Requested size: 586.34917pt x 514.07935pt.
 <figures/fig03_domain_shift_illustrative.png, id=24, 875.4306pt x 297.2706pt>
 File: figures/fig03_domain_shift_illustrative.png Graphic file (type png)
 <use figures/fig03_domain_shift_illustrative.png>
 Package pdftex.def Info: figures/fig03_domain_shift_illustrative.png  used on i
-nput line 257.
+nput line 255.
 (pdftex.def)             Requested size: 875.42847pt x 297.26987pt.
  [3] [4 <./figures/fig01_graphical_model.png> <./figures/fig02_decision_stabili
 ty_concept.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 294.
+(Font)              <10> on input line 292.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 294.
+(Font)              <7> on input line 292.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 294.
+(Font)              <5> on input line 292.
  [5{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc
 }{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.e
 nc} <./figures/fig03_domain_shift_illustrative.png>] [6{C:/Users/C.Price/AppDat
 a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-81.
+79.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -561,13 +561,13 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: figures/fig04_pmean_city_ecdf.png Graphic file (type png)
 <use figures/fig04_pmean_city_ecdf.png>
 Package pdftex.def Info: figures/fig04_pmean_city_ecdf.png  used on input line 
-485.
+483.
 (pdftex.def)             Requested size: 498.17998pt x 281.85231pt.
 <figures/fig05_borderline_vs_k.png, id=77, 498.663pt x 281.853pt>
 File: figures/fig05_borderline_vs_k.png Graphic file (type png)
 <use figures/fig05_borderline_vs_k.png>
 Package pdftex.def Info: figures/fig05_borderline_vs_k.png  used on input line 
-508.
+506.
 (pdftex.def)             Requested size: 498.66177pt x 281.85231pt.
  [8] [9 <./figures/fig04_pmean_city_ecdf.png> <./figures/fig05_borderline_vs_k.
 png>]
@@ -575,16 +575,16 @@ png>]
 File: figures/fig06_topk_prob_histogram.png Graphic file (type png)
 <use figures/fig06_topk_prob_histogram.png>
 Package pdftex.def Info: figures/fig06_topk_prob_histogram.png  used on input l
-ine 535.
+ine 533.
 (pdftex.def)             Requested size: 508.29774pt x 281.85231pt.
  [10 <./figures/fig06_topk_prob_histogram.png>] [11] [12]
-Underfull \hbox (badness 1810) in paragraph at lines 673--676
+Underfull \hbox (badness 1810) in paragraph at lines 671--674
 []\T1/lmr/m/n/10 (+20) Mohor, G. S., et al. (2021). Res-i-den-tial flood loss e
 s-ti-mated from
  []
 
 
-Overfull \hbox (28.27368pt too wide) in paragraph at lines 687--690
+Overfull \hbox (28.27368pt too wide) in paragraph at lines 685--688
 \T1/lmr/m/n/10 (-20) Bayesian Net-work. \T1/lmr/m/it/10 (-20) Jour-nal of Hy-dr
 ol-ogy\T1/lmr/m/n/10 (-20) . https://doi.org/10.1016/j.jhydrol.2020.124596 
  []
