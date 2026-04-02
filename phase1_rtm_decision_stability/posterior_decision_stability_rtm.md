@@ -4,7 +4,7 @@ author: |
   Mikel Martinez Mugica  
   Independent Researcher  
   https://habnetic.org
-date: March 2026
+date: April 2026
 ---
 
 \maketitle
@@ -17,7 +17,7 @@ This paper introduces a reproducible Bayesian baseline for propagating uncertain
 
 Using Rotterdam as a case study (~221,324 buildings), we construct an exposure–hazard–outcome pipeline and perform Bayesian inference to estimate posterior distributions of asset-level impact probabilities. Prioritisation decisions are then derived from posterior draws rather than point estimates.
 
-We quantify decision stability using posterior-derived metrics including top-k membership probability and borderline share. Results indicate that most assets exhibit stable prioritisation outcomes under the current modelling assumptions, while a small fraction occupy a narrow decision boundary where ranking uncertainty is concentrated.
+We quantify decision stability using posterior-derived metrics including top-k membership probability and borderline share. Results indicate that most assets exhibit stable prioritisation outcomes under the current modelling assumptions, while a small fraction occupy a narrow decision boundary where ranking uncertainty is concentrated. This structure is further shown to be robust under controlled perturbations of the hazard proxy, suggesting that the observed decision boundary is not driven by deterministic hazard specification.
 
 This work provides a minimal probabilistic baseline for analysing decision stability in urban risk prioritisation and establishes a foundation for later extensions incorporating hazard uncertainty and cross-city transfer.
 
@@ -289,6 +289,50 @@ Overall, posterior uncertainty is not diffuse across the system but sharply conc
 
 This concentration of instability at the decision boundary implies that most prioritisation decisions are robust under current assumptions, and that uncertainty reduction efforts can be targeted efficiently rather than applied uniformly across all assets.
 
+## 6.4 Robustness to Hazard Perturbation
+
+The results above are derived using a deterministic hazard proxy. To assess whether the observed concentration of decision instability depends on this assumption, we introduce controlled perturbations to the hazard representation.
+
+The following values are computed on the inference subsample (N = 5000) and are therefore not directly comparable to the citywide percentages reported in Sections 6.2–6.3.
+
+The standardised hazard variable is perturbed as:
+
+\[
+H_i^{\text{perturbed}} = H_i + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0, \sigma)
+\]
+
+We evaluate multiple perturbation levels:
+
+- σ = 0.00 (baseline)
+- σ = 0.05
+- σ = 0.10
+- σ = 0.20
+- σ = 0.30
+
+For each scenario, the full inference pipeline is re-run and decision metrics are recomputed.
+
+### Results
+
+| σ     | Borderline Share |
+|------|------------------|
+| 0.00 | 0.0158 |
+| 0.05 | 0.0130 |
+| 0.10 | 0.0148 |
+| 0.20 | 0.0172 |
+| 0.30 | 0.0174 |
+
+![Decision instability vs hazard perturbation](figures/fig07_borderline_vs_sigma.png)
+
+The borderline share remains within a narrow range (~1.3–1.7%) across all perturbation levels.
+
+### Interpretation
+
+The concentration of decision instability within a narrow boundary is robust to moderate perturbations (σ up to 0.30 in standardised hazard space) of the hazard proxy.
+
+This indicates that the observed prioritisation structure is not an artefact of a fixed hazard input, but rather a structural property of the model and data. Most assets retain stable prioritisation behaviour, while a small subset near the decision threshold continues to drive variability.
+
+These results support the interpretation that posterior-derived prioritisation stability is inherently localised, and not highly sensitive to moderate uncertainty in hazard representation.
+
 ---
 
 # 7. Discussion
@@ -298,6 +342,8 @@ This study demonstrates how prioritisation decisions in urban risk assessment ca
 The Rotterdam case study indicates that posterior uncertainty primarily affects a narrow subset of assets located near the prioritisation boundary. Most assets exhibit membership probabilities close to either zero or one, suggesting that the majority of ranking outcomes remain stable across posterior draws. Instability is concentrated in a relatively small decision boundary where ranking positions fluctuate. Identifying this boundary is useful for decision-makers, as it highlights locations where additional data collection or improved modelling could most influence intervention priorities.
 
 More broadly, this work illustrates how probabilistic inference can be linked directly to decision-relevant quantities. Instead of summarising uncertainty solely through parameter estimates or predictive intervals, the approach evaluates uncertainty in the prioritisation outcome itself. This perspective enables decision-makers to distinguish between robust prioritisation outcomes and those that are sensitive to modelling assumptions. Previous work has often used probabilistic models to improve parameter estimation or predictive performance within specific components of flood risk assessment, such as damage functions or susceptibility mapping (Sairam et al., 2019; Wu et al., 2019). In contrast, the present framework evaluates uncertainty in the prioritisation outcome itself by analysing posterior ranking distributions and top-k membership probabilities.
+
+These findings are reinforced by the hazard perturbation experiment, which shows that the concentration of decision instability remains stable under moderate noise in the hazard proxy. This suggests that the observed decision boundary is not merely a consequence of deterministic inputs, but reflects a structural property of the inference and ranking mechanism.
 
 Phase 1 intentionally employs simplified hazard and outcome representations in order to validate the statistical structure of the inference and decision pipeline. Future work will extend the framework in two directions. First, more realistic hazard representations will be introduced to account for variability in pluvial forcing and spatial flood processes. Second, the framework will be applied across multiple cities to evaluate how prioritisation stability behaves under domain shift and structural uncertainty.
 
@@ -313,7 +359,7 @@ Several limitations should be noted:
 - The outcome variable is synthetic and not calibrated to observed damage.
 - Exposure proxies are limited to hydrographic proximity indicators.
 
-These simplifications are intentional in Phase 1 to isolate the statistical behaviour of the inference and decision pipeline.
+These simplifications are intentional in the present baseline study to isolate the statistical behaviour of the inference and decision pipeline.
 
 ---
 
@@ -323,7 +369,7 @@ This paper introduces a probabilistic framework for analysing prioritisation sta
 
 By deriving decision metrics directly from posterior distributions, the framework enables explicit evaluation of ranking robustness.
 
-The Rotterdam case study demonstrates that prioritisation instability is concentrated in a small subset of assets, highlighting where additional data or modelling effort may most improve decision reliability.
+The Rotterdam case study demonstrates that prioritisation instability is concentrated in a small subset of assets and remains robust under moderate perturbations of the hazard proxy, highlighting where additional data or modelling effort may most improve decision reliability.
 
 Future work will extend this framework to hazard uncertainty and cross-city transfer experiments.
 
