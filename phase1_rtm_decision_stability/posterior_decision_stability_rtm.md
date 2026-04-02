@@ -297,23 +297,23 @@ The following values are computed on the inference subsample (N = 5000) and are 
 
 The standardised hazard variable is perturbed as:
 
-\[
+$$
 H_i^{\text{perturbed}} = H_i + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0, \sigma)
-\]
+$$
 
 We evaluate multiple perturbation levels:
 
-- σ = 0.00 (baseline)
-- σ = 0.05
-- σ = 0.10
-- σ = 0.20
-- σ = 0.30
+- $\sigma$ = 0.00 (baseline)
+- $\sigma$ = 0.05
+- $\sigma$ = 0.10
+- $\sigma$ = 0.20
+- $\sigma$ = 0.30
 
 For each scenario, the full inference pipeline is re-run and decision metrics are recomputed.
 
 ### Results
 
-| σ     | Borderline Share |
+| $\sigma$     | Borderline Share |
 |------|------------------|
 | 0.00 | 0.0158 |
 | 0.05 | 0.0130 |
@@ -327,7 +327,7 @@ The borderline share remains within a narrow range (~1.3–1.7%) across all pert
 
 ### Interpretation
 
-The concentration of decision instability within a narrow boundary is robust to moderate perturbations (σ up to 0.30 in standardised hazard space) of the hazard proxy.
+The concentration of decision instability within a narrow boundary is robust to moderate perturbations ($\sigma$ up to 0.30 in standardised hazard space) of the hazard proxy.
 
 This indicates that the observed prioritisation structure is not an artefact of a fixed hazard input, but rather a structural property of the model and data. Most assets retain stable prioritisation behaviour, while a small subset near the decision threshold continues to drive variability.
 

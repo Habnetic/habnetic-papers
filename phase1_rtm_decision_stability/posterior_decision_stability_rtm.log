@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.19)  22 MAR 2026 22:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.19)  2 APR 2026 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./phase1_rtm_decision_stability.tex
-(phase1_rtm_decision_stability.tex
+**./posterior_decision_stability_rtm.tex
+(posterior_decision_stability_rtm.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -233,6 +233,76 @@ Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )))
+(C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count298
+\LTcapwidth=\dimen159
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count299
+\LT@rows=\count300
+\c@LT@tables=\count301
+\c@LT@chunks=\count302
+\LT@p@ftn=\toks27
+)
+(C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen160
+\lightrulewidth=\dimen161
+\cmidrulewidth=\dimen162
+\belowrulesep=\dimen163
+\belowbottomsep=\dimen164
+\aboverulesep=\dimen165
+\abovetopsep=\dimen166
+\cmidrulesep=\dimen167
+\cmidrulekern=\dimen168
+\defaultaddspace=\dimen169
+\@cmidla=\count303
+\@cmidlb=\count304
+\@aboverulesep=\dimen170
+\@belowrulesep=\dimen171
+\@thisruleclass=\count305
+\@lastruleclass=\count306
+\@thisrulewidth=\dimen172
+) (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen173
+\ar@mcellbox=\box61
+\extrarowheight=\dimen174
+\NC@list=\toks28
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box62
+)
+\c@none=\count307
+
+(C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count308
+\calc@Bcount=\count309
+\calc@Adimen=\dimen175
+\calc@Bdimen=\dimen176
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count310
+\calc@Cskip=\skip63
+)
+(C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/footnotehyper\footnot
+ehyper.sty
+Package: footnotehyper 2025/11/15 v1.1f hyperref aware footnote.sty (JFB)
+\FNH@notes=\box63
+\FNH@width=\dimen177
+\FNH@toks=\toks29
+)
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -247,10 +317,10 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 )
-\Gin@req@height=\dimen159
-\Gin@req@width=\dimen160
+\Gin@req@height=\dimen178
+\Gin@req@width=\dimen179
 )
-\pandoc@box=\box56
+\pandoc@box=\box64
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -292,16 +362,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count298
+\c@section@level=\count311
 )
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc
 .sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen161
-\Hy@linkcounter=\count299
-\Hy@pagecounter=\count300
+\@linkdim=\dimen180
+\Hy@linkcounter=\count312
+\Hy@pagecounter=\count313
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
@@ -311,7 +381,7 @@ Now handling font encoding PD1 ...
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count301
+\Hy@SavedSpaceFactor=\count314
  (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -325,13 +395,13 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count302
+\c@Hy@tempcnt=\count315
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen162
+\XeTeXLinkMargin=\dimen181
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -341,9 +411,9 @@ lc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count303
-\Field@Width=\dimen163
-\Fld@charsize=\dimen164
+\Fld@menulength=\count316
+\Field@Width=\dimen182
+\Fld@charsize=\dimen183
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -351,16 +421,16 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count304
-\c@Item=\count305
-\c@Hfootnote=\count306
+\Hy@abspage=\count317
+\c@Item=\count318
+\c@Hfootnote=\count319
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count307
-\c@bookmark@seq@number=\count308
+\Fld@listcount=\count320
+\c@bookmark@seq@number=\count321
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunf
 ilecheck.sty
@@ -373,17 +443,17 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip55
+\Hy@SectionHShift=\skip64
 )
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.d
 ef
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
-\BKM@id=\count309
+\BKM@id=\count322
 )) (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 72
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 83
 .
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
@@ -392,43 +462,43 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count310
-) (phase1_rtm_decision_stability.aux)
-\openout1 = `phase1_rtm_decision_stability.aux'.
+\l__color_backend_stack_int=\count323
+) (posterior_decision_stability_rtm.aux)
+\openout1 = `posterior_decision_stability_rtm.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count311
-\scratchdimen=\dimen165
-\scratchbox=\box57
-\nofMPsegments=\count312
-\nofMParguments=\count313
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count314
-\MPscratchDim=\dimen166
-\MPnumerator=\count315
-\makeMPintoPDFobject=\count316
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count324
+\scratchdimen=\dimen184
+\scratchbox=\box65
+\nofMPsegments=\count325
+\nofMParguments=\count326
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen185
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
+\everyMPtoPDFconversion=\toks31
 )
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
 -base.sty
@@ -440,13 +510,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 .cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \microtypecontext on input line 72.
-Package microtype Info: Applying patch `item' on input line 72.
-Package microtype Info: Applying patch `toc' on input line 72.
-Package microtype Info: Applying patch `eqnum' on input line 72.
-Package microtype Info: Applying patch `footnote' on input line 72.
-Package microtype Info: Applying patch `verbatim' on input line 72.
-LaTeX Info: Redefining \microtypesetup on input line 72.
+LaTeX Info: Redefining \microtypecontext on input line 83.
+Package microtype Info: Applying patch `item' on input line 83.
+Package microtype Info: Applying patch `toc' on input line 83.
+Package microtype Info: Applying patch `eqnum' on input line 83.
+Package microtype Info: Applying patch `footnote' on input line 83.
+Package microtype Info: Applying patch `verbatim' on input line 83.
+LaTeX Info: Redefining \microtypesetup on input line 83.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -462,37 +532,37 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 72.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
-4.
+Package hyperref Info: Link coloring OFF on input line 83.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
+5.
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-4.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
+5.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-74.
+85.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-74.
+85.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 74.
+(Font)              <12> on input line 85.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 74.
+(Font)              <8> on input line 85.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 74.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 74.
+(Font)              <6> on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -501,7 +571,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 74.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -513,7 +583,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 {C:/Users/C.Price/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/C.
 Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-25.
+41.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -524,34 +594,34 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: figures/fig01_graphical_model.png Graphic file (type png)
 <use figures/fig01_graphical_model.png>
 Package pdftex.def Info: figures/fig01_graphical_model.png  used on input line 
-228.
+244.
 (pdftex.def)             Requested size: 605.38022pt x 281.85231pt.
 <figures/fig02_decision_stability_concept.png, id=23, 586.3506pt x 514.0806pt>
 File: figures/fig02_decision_stability_concept.png Graphic file (type png)
 <use figures/fig02_decision_stability_concept.png>
 Package pdftex.def Info: figures/fig02_decision_stability_concept.png  used on 
-input line 240.
+input line 256.
 (pdftex.def)             Requested size: 586.34917pt x 514.07935pt.
 <figures/fig03_domain_shift_illustrative.png, id=24, 875.4306pt x 297.2706pt>
 File: figures/fig03_domain_shift_illustrative.png Graphic file (type png)
 <use figures/fig03_domain_shift_illustrative.png>
 Package pdftex.def Info: figures/fig03_domain_shift_illustrative.png  used on i
-nput line 255.
+nput line 271.
 (pdftex.def)             Requested size: 875.42847pt x 297.26987pt.
  [3] [4 <./figures/fig01_graphical_model.png> <./figures/fig02_decision_stabili
 ty_concept.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 292.
+(Font)              <10> on input line 308.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 292.
+(Font)              <7> on input line 308.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 292.
+(Font)              <5> on input line 308.
  [5{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc
 }{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.e
 nc} <./figures/fig03_domain_shift_illustrative.png>] [6{C:/Users/C.Price/AppDat
 a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-79.
+95.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -561,13 +631,13 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: figures/fig04_pmean_city_ecdf.png Graphic file (type png)
 <use figures/fig04_pmean_city_ecdf.png>
 Package pdftex.def Info: figures/fig04_pmean_city_ecdf.png  used on input line 
-483.
+499.
 (pdftex.def)             Requested size: 498.17998pt x 281.85231pt.
 <figures/fig05_borderline_vs_k.png, id=77, 498.663pt x 281.853pt>
 File: figures/fig05_borderline_vs_k.png Graphic file (type png)
 <use figures/fig05_borderline_vs_k.png>
 Package pdftex.def Info: figures/fig05_borderline_vs_k.png  used on input line 
-506.
+522.
 (pdftex.def)             Requested size: 498.66177pt x 281.85231pt.
  [8] [9 <./figures/fig04_pmean_city_ecdf.png> <./figures/fig05_borderline_vs_k.
 png>]
@@ -575,34 +645,42 @@ png>]
 File: figures/fig06_topk_prob_histogram.png Graphic file (type png)
 <use figures/fig06_topk_prob_histogram.png>
 Package pdftex.def Info: figures/fig06_topk_prob_histogram.png  used on input l
-ine 533.
+ine 549.
 (pdftex.def)             Requested size: 508.29774pt x 281.85231pt.
- [10 <./figures/fig06_topk_prob_histogram.png>] [11] [12]
-Underfull \hbox (badness 1810) in paragraph at lines 671--674
+ [10 <./figures/fig06_topk_prob_histogram.png>]
+ignored error: Infinite glue shrinkage found in box being split [11]
+<figures/fig07_borderline_vs_sigma.png, id=111, 707.0415pt x 416.757pt>
+File: figures/fig07_borderline_vs_sigma.png Graphic file (type png)
+<use figures/fig07_borderline_vs_sigma.png>
+Package pdftex.def Info: figures/fig07_borderline_vs_sigma.png  used on input l
+ine 635.
+(pdftex.def)             Requested size: 707.03976pt x 416.75598pt.
+ [12 <./figures/fig07_borderline_vs_sigma.png>] [13]
+Underfull \hbox (badness 1810) in paragraph at lines 777--780
 []\T1/lmr/m/n/10 (+20) Mohor, G. S., et al. (2021). Res-i-den-tial flood loss e
 s-ti-mated from
  []
 
-
-Overfull \hbox (28.27368pt too wide) in paragraph at lines 685--688
+[14]
+Overfull \hbox (28.27368pt too wide) in paragraph at lines 791--794
 \T1/lmr/m/n/10 (-20) Bayesian Net-work. \T1/lmr/m/it/10 (-20) Jour-nal of Hy-dr
 ol-ogy\T1/lmr/m/n/10 (-20) . https://doi.org/10.1016/j.jhydrol.2020.124596 
  []
 
-[13] (phase1_rtm_decision_stability.aux)
+[15] (posterior_decision_stability_rtm.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13170 strings out of 467871
- 208902 string characters out of 5417408
- 652669 words of memory out of 5000000
- 41664 multiletter control sequences out of 15000+600000
- 690924 words of font info for 155 fonts, out of 8000000 for 9000
+ 13638 strings out of 467871
+ 217068 string characters out of 5417408
+ 661777 words of memory out of 5000000
+ 42106 multiletter control sequences out of 15000+600000
+ 691007 words of font info for 156 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,6n,93p,1028b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,6n,93p,1031b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmm
@@ -617,9 +695,10 @@ c/lm/lmsy10.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmsy7.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/lm/lmtt10.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on phase1_rtm_decision_stability.pdf (13 pages, 1230032 bytes).
+Output written on posterior_decision_stability_rtm.pdf (15 pages, 1388414 bytes
+).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 35079 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 313 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 35108 words of extra memory for PDF output out of 35830 (max. 10000000)
 

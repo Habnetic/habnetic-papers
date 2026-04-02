@@ -36,6 +36,17 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \newsavebox\pandoc@box
@@ -67,9 +78,11 @@ Prioritisation}
 \author{Mikel Martinez Mugica\\
 Independent Researcher\\
 https://habnetic.org}
-\date{March 2026}
+\date{April 2026}
 
 \begin{document}
+\maketitle
+
 \maketitle
 
 \subsection{Abstract}\label{abstract}
@@ -98,7 +111,10 @@ We quantify decision stability using posterior-derived metrics including
 top-k membership probability and borderline share. Results indicate that
 most assets exhibit stable prioritisation outcomes under the current
 modelling assumptions, while a small fraction occupy a narrow decision
-boundary where ranking uncertainty is concentrated.
+boundary where ranking uncertainty is concentrated. This structure is
+further shown to be robust under controlled perturbations of the hazard
+proxy, suggesting that the observed decision boundary is not driven by
+deterministic hazard specification.
 
 This work provides a minimal probabilistic baseline for analysing
 decision stability in urban risk prioritisation and establishes a
@@ -559,6 +575,86 @@ most prioritisation decisions are robust under current assumptions, and
 that uncertainty reduction efforts can be targeted efficiently rather
 than applied uniformly across all assets.
 
+\subsection{6.4 Robustness to Hazard
+Perturbation}\label{robustness-to-hazard-perturbation}
+
+The results above are derived using a deterministic hazard proxy. To
+assess whether the observed concentration of decision instability
+depends on this assumption, we introduce controlled perturbations to the
+hazard representation.
+
+The following values are computed on the inference subsample (N = 5000)
+and are therefore not directly comparable to the citywide percentages
+reported in Sections 6.2--6.3.
+
+The standardised hazard variable is perturbed as:
+
+\[
+H_i^{\text{perturbed}} = H_i + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0, \sigma)
+\]
+
+We evaluate multiple perturbation levels:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\sigma\) = 0.00 (baseline)
+\item
+  \(\sigma\) = 0.05
+\item
+  \(\sigma\) = 0.10
+\item
+  \(\sigma\) = 0.20
+\item
+  \(\sigma\) = 0.30
+\end{itemize}
+
+For each scenario, the full inference pipeline is re-run and decision
+metrics are recomputed.
+
+\subsubsection{Results}\label{results-1}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+\(\sigma\) & Borderline Share \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0.00 & 0.0158 \\
+0.05 & 0.0130 \\
+0.10 & 0.0148 \\
+0.20 & 0.0172 \\
+0.30 & 0.0174 \\
+\end{longtable}
+}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={Decision instability vs hazard perturbation}]{figures/fig07_borderline_vs_sigma.png}}
+\caption{Decision instability vs hazard perturbation}
+\end{figure}
+
+The borderline share remains within a narrow range
+(\textasciitilde1.3--1.7\%) across all perturbation levels.
+
+\subsubsection{Interpretation}\label{interpretation}
+
+The concentration of decision instability within a narrow boundary is
+robust to moderate perturbations (\(\sigma\) up to 0.30 in standardised
+hazard space) of the hazard proxy.
+
+This indicates that the observed prioritisation structure is not an
+artefact of a fixed hazard input, but rather a structural property of
+the model and data. Most assets retain stable prioritisation behaviour,
+while a small subset near the decision threshold continues to drive
+variability.
+
+These results support the interpretation that posterior-derived
+prioritisation stability is inherently localised, and not highly
+sensitive to moderate uncertainty in hazard representation.
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{7. Discussion}\label{discussion}
@@ -594,6 +690,13 @@ contrast, the present framework evaluates uncertainty in the
 prioritisation outcome itself by analysing posterior ranking
 distributions and top-k membership probabilities.
 
+These findings are reinforced by the hazard perturbation experiment,
+which shows that the concentration of decision instability remains
+stable under moderate noise in the hazard proxy. This suggests that the
+observed decision boundary is not merely a consequence of deterministic
+inputs, but reflects a structural property of the inference and ranking
+mechanism.
+
 Phase 1 intentionally employs simplified hazard and outcome
 representations in order to validate the statistical structure of the
 inference and decision pipeline. Future work will extend the framework
@@ -626,8 +729,9 @@ Several limitations should be noted:
   Exposure proxies are limited to hydrographic proximity indicators.
 \end{itemize}
 
-These simplifications are intentional in Phase 1 to isolate the
-statistical behaviour of the inference and decision pipeline.
+These simplifications are intentional in the present baseline study to
+isolate the statistical behaviour of the inference and decision
+pipeline.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -640,8 +744,10 @@ By deriving decision metrics directly from posterior distributions, the
 framework enables explicit evaluation of ranking robustness.
 
 The Rotterdam case study demonstrates that prioritisation instability is
-concentrated in a small subset of assets, highlighting where additional
-data or modelling effort may most improve decision reliability.
+concentrated in a small subset of assets and remains robust under
+moderate perturbations of the hazard proxy, highlighting where
+additional data or modelling effort may most improve decision
+reliability.
 
 Future work will extend this framework to hazard uncertainty and
 cross-city transfer experiments.
