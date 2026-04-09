@@ -7,13 +7,12 @@ author: |
 date: April 2026
 ---
 
-\maketitle
 
 ## Abstract
 
 Urban risk assessments often produce ranked lists of assets or locations to guide infrastructure investment and resilience planning. These rankings are typically derived from deterministic risk scores or expected impact estimates. While uncertainty may be quantified within individual model components, it is rarely propagated through the full exposure–hazard–impact chain to the prioritisation decisions themselves.
 
-This paper introduces a reproducible Bayesian baseline for propagating uncertainty from exposure and hazard proxies to decision-relevant prioritisation metrics in urban pluvial risk assessment. This allows prioritisation decisions themselves to be analysed as uncertain objects, rather than fixed rankings derived from uncertain inputs.
+This paper introduces a reproducible Bayesian baseline for propagating uncertainty from exposure and hazard proxies to decision-relevant prioritisation metrics in urban pluvial risk assessment. This allows prioritisation decisions themselves to be analysed as random variables derived from the posterior, rather than fixed rankings derived from uncertain inputs.
 
 Using Rotterdam as a case study (~221,324 buildings), we construct an exposure–hazard–outcome pipeline and perform Bayesian inference to estimate posterior distributions of asset-level impact probabilities. Prioritisation decisions are then derived from posterior draws rather than point estimates.
 
@@ -132,13 +131,13 @@ Hazard is represented by a deterministic pluvial forcing proxy derived from ERA5
 
 ### Outcome variable
 
-The outcome variable represents a **synthetic damage indicator**, used solely to validate the probabilistic inference structure. No claims of empirical calibration are made in this phase.
+The outcome variable represents a **synthetic damage indicator**, used solely to validate the probabilistic inference structure. No claims of empirical calibration are made in this phase. The purpose of this synthetic outcome is not to estimate real-world flood risk, but to evaluate the behaviour of the probabilistic inference-to-decision pipeline under controlled conditions.
 
 ---
 
 # 4. Bayesian Model
 
-The model defines a simple generative structure linking exposure, hazard proxy, and binary impact outcome.
+The model defines a simple generative structure linking exposure, hazard proxy, and binary impact outcome. We assume that, conditional on the proxy variables $E_i$ and $H_i$, asset-level outcomes $Y_i$ are generated independently across assets according to a Bernoulli process with probability $p_i$. The variables $E_i$ and $H_i$ are treated as observed proxies for latent exposure and hazard processes, and no additional dependence structure is modelled at this stage.
 
 Asset-level impact probability is modelled using a logistic regression structure:
 
@@ -177,6 +176,8 @@ Diagnostics include:
 - $\hat{R}$ convergence diagnostics
 - effective sample size (ESS)
 - posterior predictive checks
+
+All model parameters achieved $\hat{R} < 1.01$, with effective sample sizes exceeding 500 for all reported variables, indicating stable and well-mixed posterior sampling.
 
 Posterior draws produce asset-level probability distributions of impact.
 
@@ -291,7 +292,7 @@ This concentration of instability at the decision boundary implies that most pri
 
 ## 6.4 Robustness to Hazard Perturbation
 
-The results above are derived using a deterministic hazard proxy. To assess whether the observed concentration of decision instability depends on this assumption, we introduce controlled perturbations to the hazard representation.
+The results above are derived using a deterministic hazard proxy. To assess whether the observed concentration of decision instability depends on this assumption, we introduce controlled perturbations to the hazard representation. This experiment can be interpreted as a test of whether the observed concentration of decision instability is an artefact of deterministic hazard specification or a structural property of the inference–decision pipeline.
 
 The following values are computed on the inference subsample (N = 5000) and are therefore not directly comparable to the citywide percentages reported in Sections 6.2–6.3.
 
