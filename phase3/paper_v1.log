@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.19)  7 MAY 2026 14:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.19)  25 MAY 2026 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -533,9 +533,10 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 Package hyperref Info: Link coloring OFF on input line 83.
-! I can't write on file `paper_v1.pdf'.
-(Press Enter to retry, or Control-C to exit; default file extension is `.pdf')
-Please type another file name for output: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
+5.
+(C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
 5.
@@ -582,157 +583,136 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 {C:/Users/C.Price/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/C.
 Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-38.
+41.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 [2{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc
 }]
-<figures/fig01_graphical_model.png, id=19, 605.3817pt x 281.853pt>
-File: figures/fig01_graphical_model.png Graphic file (type png)
-<use figures/fig01_graphical_model.png>
-Package pdftex.def Info: figures/fig01_graphical_model.png  used on input line 
-236.
-(pdftex.def)             Requested size: 605.38022pt x 281.85231pt.
-<figures/RTM_03_stability_classification.png, id=21, 295.75108pt x 228.76234pt>
-
-File: figures/RTM_03_stability_classification.png Graphic file (type png)
-<use figures/RTM_03_stability_classification.png>
-Package pdftex.def Info: figures/RTM_03_stability_classification.png  used on i
-nput line 248.
-(pdftex.def)             Requested size: 295.75035pt x 228.76178pt.
-<figures/fig03_domain_shift_illustrative.png, id=22, 875.4306pt x 297.2706pt>
-File: figures/fig03_domain_shift_illustrative.png Graphic file (type png)
-<use figures/fig03_domain_shift_illustrative.png>
-Package pdftex.def Info: figures/fig03_domain_shift_illustrative.png  used on i
-nput line 263.
-(pdftex.def)             Requested size: 875.42847pt x 297.26987pt.
- [3] [4 <./figures/fig01_graphical_model.png> <./figures/RTM_03_stability_class
-ification.png>] [5 <./figures/fig03_domain_shift_illustrative.png>]
+<figures/fig01_graphical_model.pdf, id=19, 605.59502pt x 281.74133pt>
+File: figures/fig01_graphical_model.pdf Graphic file (type pdf)
+<use figures/fig01_graphical_model.pdf>
+Package pdftex.def Info: figures/fig01_graphical_model.pdf  used on input line 
+231.
+(pdftex.def)             Requested size: 605.59354pt x 281.74063pt.
+ [3] [4 <./figures/fig01_graphical_model.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 345.
+(Font)              <10> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 345.
+(Font)              <7> on input line 316.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 345.
- [6{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit
-.enc}{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.e
-nc}{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy
-.enc}]
+(Font)              <5> on input line 316.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-93.
+64.
 
 (C:\Users\C.Price\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<figures/fig_prior_predictive_event_rate.png, id=62, 505.89pt x 289.08pt>
-File: figures/fig_prior_predictive_event_rate.png Graphic file (type png)
-<use figures/fig_prior_predictive_event_rate.png>
-Package pdftex.def Info: figures/fig_prior_predictive_event_rate.png  used on i
-nput line 419.
-(pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
-
-[7 <./figures/fig_prior_predictive_event_rate.png>] [8]
-<figures/fig04_pmean_city_ecdf.png, id=87, 498.1812pt x 281.853pt>
-File: figures/fig04_pmean_city_ecdf.png Graphic file (type png)
-<use figures/fig04_pmean_city_ecdf.png>
-Package pdftex.def Info: figures/fig04_pmean_city_ecdf.png  used on input line 
-509.
-(pdftex.def)             Requested size: 498.17998pt x 281.85231pt.
-<figures/fig05_borderline_vs_k.png, id=88, 498.663pt x 281.853pt>
-File: figures/fig05_borderline_vs_k.png Graphic file (type png)
-<use figures/fig05_borderline_vs_k.png>
-Package pdftex.def Info: figures/fig05_borderline_vs_k.png  used on input line 
-525.
-(pdftex.def)             Requested size: 498.66177pt x 281.85231pt.
-<figures/RTM_01_deterministic_ranking.png, id=89, 295.75108pt x 228.76234pt>
-File: figures/RTM_01_deterministic_ranking.png Graphic file (type png)
-<use figures/RTM_01_deterministic_ranking.png>
-Package pdftex.def Info: figures/RTM_01_deterministic_ranking.png  used on inpu
-t line 537.
-(pdftex.def)             Requested size: 295.75035pt x 228.76178pt.
- [9 <./figures/fig04_pmean_city_ecdf.png>] [10 <./figures/fig05_borderline_vs_k
-.png> <./figures/RTM_01_deterministic_ranking.png>]
-<figures/RTM_02_probability_ranking.png, id=106, 295.75108pt x 228.76234pt>
-File: figures/RTM_02_probability_ranking.png Graphic file (type png)
-<use figures/RTM_02_probability_ranking.png>
-Package pdftex.def Info: figures/RTM_02_probability_ranking.png  used on input 
-line 551.
-(pdftex.def)             Requested size: 295.75035pt x 228.76178pt.
-<figures/ppc_RTM.png, id=107, 462.528pt x 346.896pt>
-File: figures/ppc_RTM.png Graphic file (type png)
-<use figures/ppc_RTM.png>
-Package pdftex.def Info: figures/ppc_RTM.png  used on input line 569.
-(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
- [11 <./figures/RTM_02_probability_ranking.png>]
-[12 <./figures/ppc_RTM.png>]
+[5{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.
+enc}{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.en
+c}{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.
+enc}]
+<figures/fig_prior_predictive_event_rate.pdf, id=65, 411.3035pt x 217.03459pt>
+File: figures/fig_prior_predictive_event_rate.pdf Graphic file (type pdf)
+<use figures/fig_prior_predictive_event_rate.pdf>
+Package pdftex.def Info: figures/fig_prior_predictive_event_rate.pdf  used on i
+nput line 391.
+(pdftex.def)             Requested size: 411.30249pt x 217.03406pt.
+ [6 <./figures/fig_prior_predictive_event_rate.pdf>] [7]
+<figures/phase3_expected_risk_ranking_RTM.pdf, id=103, 411.24956pt x 223.61794p
+t>
+File: figures/phase3_expected_risk_ranking_RTM.pdf Graphic file (type pdf)
+<use figures/phase3_expected_risk_ranking_RTM.pdf>
+Package pdftex.def Info: figures/phase3_expected_risk_ranking_RTM.pdf  used on 
+input line 511.
+(pdftex.def)             Requested size: 411.24854pt x 223.61737pt.
+ [8{C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex
+.enc} <./figures/phase3_expected_risk_ranking_RTM.pdf>]
+<figures/phase3_decision_stability_structure_RTM.pdf, id=128, 440.15755pt x 272
+.94133pt>
+File: figures/phase3_decision_stability_structure_RTM.pdf Graphic file (type pd
+f)
+<use figures/phase3_decision_stability_structure_RTM.pdf>
+Package pdftex.def Info: figures/phase3_decision_stability_structure_RTM.pdf  u
+sed on input line 528.
+(pdftex.def)             Requested size: 440.15646pt x 272.94066pt.
+<figures/phase3_certainty_composition_bar.pdf, id=129, 462.57541pt x 170.91028p
+t>
+File: figures/phase3_certainty_composition_bar.pdf Graphic file (type pdf)
+<use figures/phase3_certainty_composition_bar.pdf>
+Package pdftex.def Info: figures/phase3_certainty_composition_bar.pdf  used on 
+input line 547.
+(pdftex.def)             Requested size: 462.57428pt x 170.90984pt.
+ [9 <./figures/phase3_decision_stability_structure_RTM.pdf>]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in none 1 on input line 621.
+(longtable)                in none 1 on input line 600.
 
-<figures/fig07_borderline_vs_sigma.png, id=122, 707.0415pt x 416.757pt>
-File: figures/fig07_borderline_vs_sigma.png Graphic file (type png)
-<use figures/fig07_borderline_vs_sigma.png>
-Package pdftex.def Info: figures/fig07_borderline_vs_sigma.png  used on input l
-ine 631.
-(pdftex.def)             Requested size: 707.03976pt x 416.75598pt.
-[13 <./figures/fig07_borderline_vs_sigma.png>]
-<figures/phase3_borderline_share_vs_k.png, id=132, 578.16pt x 361.35pt>
-File: figures/phase3_borderline_share_vs_k.png Graphic file (type png)
-<use figures/phase3_borderline_share_vs_k.png>
-Package pdftex.def Info: figures/phase3_borderline_share_vs_k.png  used on inpu
-t line 664.
-(pdftex.def)             Requested size: 578.15858pt x 361.34912pt.
+<figures/fig07_borderline_vs_sigma.pdf, id=152, 706.87366pt x 416.82066pt>
+File: figures/fig07_borderline_vs_sigma.pdf Graphic file (type pdf)
+<use figures/fig07_borderline_vs_sigma.pdf>
+Package pdftex.def Info: figures/fig07_borderline_vs_sigma.pdf  used on input l
+ine 610.
+(pdftex.def)             Requested size: 706.87192pt x 416.81963pt.
+
+Overfull \vbox (150.94066pt too high) has occurred while \output is active []
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in none 2 on input line 680.
+[10 <./figures/phase3_certainty_composition_bar.pdf> <./figures/fig07_borderlin
+e_vs_sigma.pdf>]
+Overfull \hbox (0.57346pt too wide) in paragraph at lines 638--639
+ []\T1/lmr/m/n/10 (-20) Representative
+ []
 
-[14 <./figures/phase3_borderline_share_vs_k.png>]
-<figures/04_cross_city_probability_structure.png, id=144, 607.34596pt x 220.701
-46pt>
-File: figures/04_cross_city_probability_structure.png Graphic file (type png)
-<use figures/04_cross_city_probability_structure.png>
-Package pdftex.def Info: figures/04_cross_city_probability_structure.png  used 
-on input line 698.
-(pdftex.def)             Requested size: 607.34448pt x 220.70091pt.
-<figures/RTM_topk_prob_k1000_map.png, id=145, 573.43465pt x 291.3037pt>
+<figures/04_cross_city_probability_structure.pdf, id=222, 523.38083pt x 215.995
+71pt>
+File: figures/04_cross_city_probability_structure.pdf Graphic file (type pdf)
+<use figures/04_cross_city_probability_structure.pdf>
+Package pdftex.def Info: figures/04_cross_city_probability_structure.pdf  used 
+on input line 668.
+(pdftex.def)             Requested size: 523.37955pt x 215.99518pt.
+<figures/phase3_cross_city_stability_structure.pdf, id=223, 526.88158pt x 215.2
+8055pt>
+File: figures/phase3_cross_city_stability_structure.pdf Graphic file (type pdf)
+
+<use figures/phase3_cross_city_stability_structure.pdf>
+Package pdftex.def Info: figures/phase3_cross_city_stability_structure.pdf  use
+d on input line 679.
+(pdftex.def)             Requested size: 526.8803pt x 215.28001pt.
+<figures/phase3_borderline_share_vs_k.pdf, id=224, 399.45642pt x 248.4226pt>
+File: figures/phase3_borderline_share_vs_k.pdf Graphic file (type pdf)
+<use figures/phase3_borderline_share_vs_k.pdf>
+Package pdftex.def Info: figures/phase3_borderline_share_vs_k.pdf  used on inpu
+t line 695.
+(pdftex.def)             Requested size: 399.45544pt x 248.422pt.
+[11 <./figures/04_cross_city_probability_structure.pdf>] [12 <./figures/phase3_
+cross_city_stability_structure.pdf> <./figures/phase3_borderline_share_vs_k.pdf
+>]
+<figures/RTM_topk_prob_k1000_map.png, id=286, 573.43465pt x 291.3037pt>
 File: figures/RTM_topk_prob_k1000_map.png Graphic file (type png)
 <use figures/RTM_topk_prob_k1000_map.png>
 Package pdftex.def Info: figures/RTM_topk_prob_k1000_map.png  used on input lin
-e 714.
+e 717.
 (pdftex.def)             Requested size: 573.43324pt x 291.30298pt.
-<figures/HAM_topk_prob_k1000_map.png, id=146, 573.43465pt x 291.3037pt>
+<figures/HAM_topk_prob_k1000_map.png, id=288, 573.43465pt x 291.3037pt>
 File: figures/HAM_topk_prob_k1000_map.png Graphic file (type png)
 <use figures/HAM_topk_prob_k1000_map.png>
 Package pdftex.def Info: figures/HAM_topk_prob_k1000_map.png  used on input lin
-e 720.
+e 723.
 (pdftex.def)             Requested size: 573.43324pt x 291.30298pt.
-<figures/DON_topk_prob_k1000_map.png, id=147, 554.81123pt x 433.62pt>
+<figures/DON_topk_prob_k1000_map.png, id=289, 554.81123pt x 433.62pt>
 File: figures/DON_topk_prob_k1000_map.png Graphic file (type png)
 <use figures/DON_topk_prob_k1000_map.png>
 Package pdftex.def Info: figures/DON_topk_prob_k1000_map.png  used on input lin
-e 726.
+e 729.
 (pdftex.def)             Requested size: 554.80988pt x 433.61894pt.
- [15 <./figures/04_cross_city_probability_structure.png>] [16 <./figures/RTM_to
-pk_prob_k1000_map.png> <./figures/HAM_topk_prob_k1000_map.png>] [17 <./figures/
-DON_topk_prob_k1000_map.png>]
-[18]
-Overfull \hbox (22.41588pt too wide) in paragraph at lines 890--891
- []\T1/lmr/m/n/10 (-20) H_pluvial_v1_mm
- []
-
-
-Overfull \hbox (29.52155pt too wide) in paragraph at lines 892--893
- []\T1/lmr/m/n/10 (-20) H_pluvial_v1_logrel
- []
-
-[19]
+ [13 <./figures/RTM_topk_prob_k1000_map.png> <./figures/HAM_topk_prob_k1000_map
+.png>] [14 <./figures/DON_topk_prob_k1000_map.png>] [15] [16]
 
 Package longtable Warning: Table widths have changed. Rerun LaTeX.
 
-[20] (paper_v1.aux)
+[17] (paper_v1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -743,16 +723,16 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 13727 strings out of 467871
- 219490 string characters out of 5417408
- 661461 words of memory out of 5000000
- 42170 multiletter control sequences out of 15000+600000
- 691533 words of font info for 160 fonts, out of 8000000 for 9000
+ 13667 strings out of 467871
+ 218730 string characters out of 5417408
+ 662461 words of memory out of 5000000
+ 42137 multiletter control sequences out of 15000+600000
+ 687512 words of font info for 150 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,7n,93p,1007b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
-pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
-2.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmm
+ 83i,8n,93p,1007b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.
+pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex1
+0.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmm
 i10.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
 mmi7.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
 lmr10.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
@@ -764,9 +744,9 @@ c/lm/lmsy10.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmsy7.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/lm/lmtt10.pfb><C:/Users/C.Price/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on paper_v1.pdf (20 pages, 2190898 bytes).
+Output written on paper_v1.pdf (17 pages, 3693751 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 74 named destinations out of 1000 (max. 500000)
- 37196 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 491 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
+ 33053 words of extra memory for PDF output out of 35830 (max. 10000000)
 
