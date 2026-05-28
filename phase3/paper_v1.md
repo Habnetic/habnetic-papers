@@ -310,7 +310,7 @@ Figure 6 shows that increasing hazard perturbation does not produce diffuse inst
 ```{=latex}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.72\textwidth]{figures/fig07_borderline_vs_sigma.pdf}
+\includegraphics[width=0.82\textwidth]{figures/fig07_borderline_vs_sigma.pdf}
 \caption{Decision instability under hazard perturbation}
 \end{figure}
 ```
@@ -351,19 +351,37 @@ Across all evaluated thresholds, instability remains concentrated in a relativel
 \clearpage
 ```
 
-## Temporary spatial top-k probability maps
+## Spatial structure of posterior decision stability
 
-Figures 9--11 show the spatial distribution of posterior top-k membership probability for Rotterdam, Hamburg, and Donostia--San Sebastián at $k=1000$. These maps are included as temporary spatial diagnostics. They help expose whether the posterior prioritisation pattern is spatially coherent, but they are not used as evidence of hydraulic correctness.
+The following figures show how posterior decision stability manifests spatially across the three study areas under fixed-specification transfer.
 
-![Rotterdam posterior top-k probability map, k = 1000](figures/RTM_topk_prob_k1000_map.png){ width=78% }
+Figure 9 shows the spatial structure of posterior top-k membership probability and local transition structure for Rotterdam, Hamburg, and Donostia--San Sebastián under comparable prioritisation thresholds.
 
-![Hamburg posterior top-k probability map, k = 1000](figures/HAM_topk_prob_k1000_map.png){ width=78% }
+```{=latex}
+\clearpage
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/RTM_paper_citywide_plus_boundary_zoom.pdf}
 
-![Donostia--San Sebastián posterior top-k probability map, k = 1000](figures/DON_topk_prob_k1000_map.png){ width=78% }
+\vspace{0.3em}
 
-The spatial maps should be interpreted cautiously. They show where posterior top-k probability concentrates under the current proxy-based model, not where flood damage is empirically validated. Their main value in this preliminary version is diagnostic: they make spatial artefacts and transfer behaviour visible.
+\includegraphics[width=0.82\textwidth]{figures/HAM_paper_citywide_plus_boundary_zoom.pdf}
 
-The transfer experiments suggest that the concentration of decision instability near a narrow prioritisation boundary may represent a structural property of the inference-to-decision pipeline rather than a city-specific artefact.
+\vspace{0.3em}
+
+\includegraphics[width=0.82\textwidth]{figures/DON_paper_citywide_plus_boundary_zoom.pdf}
+
+\caption{Spatial structure of posterior top-k probability and local transition regions across Rotterdam, Hamburg, and Donostia--San Sebastián. Each row shows the citywide posterior top-k membership probability and a local transition structure near the prioritisation boundary.}
+\end{figure}
+
+```
+
+The spatial comparison illustrates that posterior instability is not spatially diffuse across the urban system. Instead, uncertainty in prioritisation membership remains concentrated within relatively narrow local transition structures separating stable high-priority and stable low-priority assets.
+
+Rotterdam and Hamburg exhibit highly polarised posterior membership distributions with extremely narrow unstable regions. Donostia--San Sebastián exhibits moderate local broadening of the transition structure under fixed-specification transfer, consistent with stronger distributional shift relative to the Rotterdam reference specification.
+
+These spatial figures are not presented as hydraulic validation. Their purpose is methodological: they expose the spatial organisation of posterior-derived prioritisation stability under uncertainty propagation and cross-city transfer.
+
 
 ---
 
@@ -444,9 +462,9 @@ The complete processed input tables are stored in:
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2.5cm} p{2cm}}
+\begin{tabular}{rrrrr}
 \toprule
-Building ID & Exposure ($E$) & Hazard mm & Hazard log-rel & Synthetic damage \\
+Building ID & Exposure ($E$) & Hazard mm & Hazard log-rel & damage \\
 \midrule
 305012 & -0.033 & 25.422 & -0.00868 & 0 \\
 313960 & 0.238 & 25.419 & -0.00881 & 0 \\
