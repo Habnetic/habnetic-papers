@@ -4,28 +4,28 @@ author: |
   Mikel Martinez Mugica  
   Independent Researcher  
   https://habnetic.org
-date: May 2026
+date: June 2026
 ---
 
 # Abstract
 
 Urban risk prioritisation workflows frequently produce deterministic rankings despite substantial uncertainty in hazard representation, exposure estimation, and model specification. While uncertainty is often analysed within individual modelling components, downstream prioritisation decisions are less commonly evaluated explicitly as probabilistic objects.
 
-This paper presents a Bayesian framework for analysing prioritisation stability under uncertainty propagation. Rather than treating rankings as fixed outputs, the framework derives posterior-based decision quantities including top-k membership probability and borderline decision share.
+This paper presents a Bayesian framework for analysing decision stability under uncertainty propagation. Rather than treating rankings as fixed outputs, the framework derives posterior-based decision quantities including top-k membership probability and borderline decision share.
 
 A reproducible exposure--hazard--outcome pipeline is implemented using a logistic Bayesian baseline with simplified exposure and pluvial hazard proxies. Posterior inference is performed using PyMC and prioritisation decisions are derived directly from posterior draws. The objective is methodological evaluation of posterior-derived decision behaviour rather than hydraulic calibration.
 
 The framework is evaluated across three phases: a Rotterdam baseline, controlled hazard perturbation experiments, and fixed-specification cross-city transfer to Hamburg and Donostia--San Sebastián.
 
-Results indicate that decision instability is not diffuse across the system. Instead, instability remains concentrated near a narrow prioritisation boundary while most assets exhibit stable prioritisation behaviour across posterior draws. At comparable 1% prioritisation thresholds, the unstable boundary represents 0.0136% of assets in Rotterdam, 0.0164% in Hamburg, and 0.1676% in Donostia--San Sebastián.
+Results indicate that decision instability is not diffuse across the system. Instead, instability remains concentrated near a narrow decision boundary while most assets exhibit stable prioritisation behaviour across posterior draws. At comparable 1% prioritisation thresholds, the unstable boundary represents 0.0136% of assets in Rotterdam, 0.0164% in Hamburg, and 0.1676% in Donostia--San Sebastián.
 
-The contribution is methodological rather than hydraulic. The framework demonstrates how posterior inference can be extended beyond predictive estimation toward explicit analysis of prioritisation stability under uncertainty.
+These results demonstrate how posterior inference can be extended beyond predictive estimation toward explicit analysis of posterior decision stability under uncertainty.
 
 ---
 
 # Introduction
 
-Urban resilience planning frequently relies on ranked lists of assets requiring intervention, such as buildings, infrastructure segments, or neighbourhoods. These rankings typically emerge from deterministic risk scores or expected damage estimates. In practice, they directly determine which assets receive intervention under limited budgets. Ranking stability is therefore operationally important, but it is often less directly examined than model-level uncertainty.
+Urban resilience planning frequently requires prioritising assets for intervention, such as buildings, infrastructure segments, or neighbourhoods. These priorities are commonly derived from deterministic risk scores or expected damage estimates. In practice, they directly determine which assets receive intervention under limited budgets. Decision stability is therefore operationally important, but it is often less directly examined than model-level uncertainty.
 
 Risk estimation involves substantial uncertainty arising from:
 
@@ -36,28 +36,28 @@ Risk estimation involves substantial uncertainty arising from:
 
 Although uncertainty may be analysed within individual modelling components, it is less commonly propagated through the full modelling chain to the final prioritisation decisions.
 
-As a result, the stability of ranked intervention lists remains comparatively underexplored relative to uncertainty analysis within individual modelling components. This paper proposes treating prioritisation stability itself as the primary inferential object.
+As a result, the stability of prioritisation decisions remains comparatively underexplored relative to uncertainty analysis within individual modelling components. This paper proposes treating posterior decision stability itself as the primary inferential object.
 
 Conventional risk prioritisation asks:
 
 > Which assets appear most at risk?
 
-This paper asks instead:
+This paper instead asks:
 
-> Which prioritisation decisions remain reliable once uncertainty is propagated through the modelling pipeline?
+> Which prioritisation decisions remain reliable once uncertainty has been propagated through the modelling pipeline?
 
 Under posterior uncertainty, rankings induce probabilistic membership in prioritised subsets rather than fixed deterministic decisions. The present work therefore evaluates prioritisation decisions as posterior-derived quantities rather than deterministic outputs.
 
-The framework is evaluated across three phases: a Rotterdam baseline, hazard perturbation experiments, and fixed-specification transfer to Hamburg and Donostia--San Sebastián. The objective is not predictive optimisation for individual cities, but evaluation of whether posterior-derived decision stability remains structurally concentrated under uncertainty and distributional shift.
+The framework is evaluated across three phases: a Rotterdam baseline, hazard perturbation experiments, and fixed-specification transfer to Hamburg and Donostia--San Sebastián. The objective is not predictive optimisation for individual cities, but to evaluate whether posterior-derived decision stability remains structurally concentrated under uncertainty and distributional shift.
 
 ## Contributions
 
 This paper makes four main contributions:
 
-- A reproducible Bayesian baseline for posterior-derived prioritisation analysis
+- A reproducible Bayesian framework for posterior decision-stability analysis
 - A set of decision-oriented posterior metrics including top-k membership probability and borderline decision share
 - A perturbation analysis showing that instability remains localised under perturbed hazard representation
-- A fixed-specification cross-city transfer experiment evaluating decision stability under distributional shift
+- A fixed-specification cross-city transfer experiment for evaluating decision stability under distributional shift
 
 ---
 
@@ -69,17 +69,15 @@ Exposure → Hazard → Impact (Outcome)
 
 where exposure describes asset characteristics, hazard represents environmental forcing, and impact represents realised damage or disruption.
 
-In probabilistic terms, this can be expressed as a generative model:
+Within the proposed framework, this structure is extended into a Bayesian inference workflow:
 
-Data → Exposure → Hazard → Outcome  
-→ Posterior inference  
-→ Decision metrics
+Exposure → Hazard → Impact → Posterior inference → Posterior decision metrics
 
-Posterior uncertainty over model parameters induces uncertainty over rankings, which in turn induces uncertainty over prioritisation membership. Rather than collapsing posterior distributions to deterministic rankings, the framework derives decision quantities directly from posterior draws.
+Posterior uncertainty over model parameters induces uncertainty over asset rankings, which in turn induces uncertainty over prioritisation membership. Rather than collapsing posterior distributions into deterministic rankings, the proposed framework derives posterior decision metrics directly from posterior draws.
 
 ![Hierarchical exposure--hazard--impact model](figures/fig01_graphical_model.pdf)
 
-Figure 1 illustrates the exposure--hazard--impact structure underlying the model. The empirical workflow uses simplified exposure and pluvial hazard proxies, a binary outcome layer, posterior inference, and posterior-derived decision metrics. The figure is intended as a model schematic rather than a hydraulic flood-process diagram.
+Figure 1 summarises the probabilistic structure of the proposed framework. Exposure indicators and hazard processes jointly determine impact, posterior inference propagates uncertainty through the model, and posterior-derived decision metrics quantify uncertainty in prioritisation decisions. The empirical implementation uses simplified exposure and pluvial hazard proxies together with a synthetic binary outcome to isolate decision behaviour under uncertainty. The figure is intended as a conceptual representation of the proposed framework rather than a hydraulic flood-process diagram.
 
 ---
 
@@ -93,7 +91,6 @@ Exposure is represented using hydrographic proximity indicators, including dista
 
 A synthetic Bernoulli outcome variable is used to isolate the behaviour of the probabilistic inference-to-decision pipeline from empirical calibration challenges. This means the experiment evaluates the stability of posterior-derived prioritisation under a controlled outcome construction; it does not claim validation against observed flood damage.
 
-Posterior-derived decision metrics are computed from posterior draws rather than deterministic risk scores.
 
 ## Phase 2 — Hazard perturbation
 
@@ -103,7 +100,7 @@ The standardised hazard representation is perturbed with additive Gaussian noise
 
 The objective is not to simulate physically realistic perturbations, but to evaluate whether instability diffuses across the prioritisation system under perturbed hazard representation.
 
-## Phase 3 — Cross-city transfer
+## Phase 3 — Fixed-specification cross-city transfer
 
 The framework is transferred from Rotterdam to Hamburg and Donostia--San Sebastián under fixed specification:
 
@@ -113,7 +110,7 @@ The framework is transferred from Rotterdam to Hamburg and Donostia--San Sebasti
 - same scaling reference
 - same decision metrics
 
-Rotterdam statistics are retained as the scaling reference for transferred cities.
+Feature standardisation is performed using Rotterdam statistics, which are retained as the scaling reference for the transferred cities.
 
 The objective is not predictive optimisation for each city individually, but evaluation of whether the decision-stability structure persists under fixed specification and distributional shift.
 
@@ -141,15 +138,17 @@ where:
 
 - $E_i$ denotes the exposure proxy
 - $H_i$ denotes the hazard proxy
-- $Y_i \in \{0,1\}$ denotes the impact indicator
+- $Y_i \in \{0,1\}$ denotes the binary impact indicator
 
 ## Priors
 
-Weakly informative priors are assigned to model parameters:
+Weakly informative Gaussian priors are assigned to the intercept and regression coefficients:
 
 $$
 \alpha, \beta_E, \beta_H \sim \mathcal{N}(0, 2.5)
 $$
+
+where 2.5 denotes the prior standard deviation.
 
 ## Inference
 
@@ -173,7 +172,7 @@ Prior predictive checks were used to verify that the prior specification does no
 
 ![Prior predictive event-rate check](figures/fig_prior_predictive_event_rate.pdf)
 
-The prior predictive check confirms that the prior specification does not force unrealistically high citywide event rates before observing the synthetic outcome data. The wide intervals are expected under weakly informative priors; the relevant check is that low baseline event rates remain plausible under the prior predictive distribution.
+Figure 2 shows the prior predictive event-rate check across Rotterdam, Hamburg, and Donostia--San Sebastián. The prior predictive intervals remain broad, as expected under weakly informative priors, but low baseline event rates remain plausible before observing the synthetic outcome data.
 
 ## Model scope
 
@@ -187,15 +186,17 @@ The present results should therefore not be interpreted as hydraulic validation 
 
 Rather than relying on point estimates, prioritisation decisions are derived directly from posterior draws.
 
-For each posterior draw:
+For each posterior draw $s$:
 
-1. asset-level impact probabilities are computed
-2. assets are ranked
-3. the top-k subset is extracted
+1. asset-level impact probabilities $p_i^{(s)}$ are computed
+2. assets are ranked by $p_i^{(s)}$
+3. the top-k subset $\text{Top}_k^{(s)}$ is extracted
 
 This produces a posterior distribution over prioritisation membership rather than a single deterministic ranking.
 
 ## Posterior mean risk
+
+Posterior mean risk is defined as the posterior expectation of the asset-level impact probability:
 
 $$
 p_{\text{mean}, i}
@@ -206,34 +207,59 @@ P(Y_i = 1 \mid \theta)
 \right]
 $$
 
-## Top-k membership probability
-
-For a prioritisation threshold $k$, the probability that asset $i$ belongs to the top-k highest-risk assets is:
+Equivalently, using posterior draws:
 
 $$
-P(i \in \text{Top}_k \mid \text{posterior})
+p_{\text{mean}, i}
+\approx
+\frac{1}{S}
+\sum_{s=1}^{S}
+p_i^{(s)}
+$$
+
+## Top-k membership probability
+
+For a prioritisation threshold $k$, the posterior probability that asset $i$ belongs to the top-k highest-risk assets is:
+
+$$
+\pi_{i,k}
+=
+P(i \in \text{Top}_k \mid \text{data})
+$$
+
+This is estimated from posterior draws as:
+
+$$
+\pi_{i,k}
+\approx
+\frac{1}{S}
+\sum_{s=1}^{S}
+\mathbb{1}
+\left(
+i \in \text{Top}_k^{(s)}
+\right)
 $$
 
 This quantity forms the primary inferential object of the analysis.
 
 ## Decision stability classes
 
-For a given threshold $k$, each asset is assigned to one of three posterior decision-stability classes:
+For a given threshold $k$, each asset is assigned to one of three posterior decision-stability classes using $\pi_{i,k}$:
 
 $$
-P(i \in \text{Top}_k) \leq 0.2
+\pi_{i,k} \leq 0.2
 $$
 
 Stable low-priority: the asset is unlikely to belong to the prioritised set.
 
 $$
-0.2 < P(i \in \text{Top}_k) < 0.8
+0.2 < \pi_{i,k} < 0.8
 $$
 
 Unstable boundary: the asset has materially uncertain prioritisation membership.
 
 $$
-P(i \in \text{Top}_k) \geq 0.8
+\pi_{i,k} \geq 0.8
 $$
 
 Stable high-priority: the asset is likely to belong to the prioritised set.
@@ -244,7 +270,10 @@ Borderline share is defined as the proportion of assets in the unstable boundary
 
 $$
 \frac{1}{N}\sum_{i=1}^{N}
-\mathbb{1}\left(0.2 < P(i \in \text{Top}_k) < 0.8\right)
+\mathbb{1}
+\left(
+0.2 < \pi_{i,k} < 0.8
+\right)
 $$
 
 This quantity measures how much of the prioritisation system remains decision-unstable under posterior uncertainty.
@@ -257,27 +286,45 @@ This quantity measures how much of the prioritisation system remains decision-un
 
 Figure 3 shows the deterministic ranking structure induced by posterior mean risk in the Rotterdam baseline. Expected risk is concentrated in a small upper tail rather than distributed evenly across the asset population.
 
-![Expected-risk ranking for Rotterdam](figures/phase3_expected_risk_ranking_RTM.pdf)
+```{=latex}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/phase3_expected_risk_ranking_RTM.pdf}
+\caption{Expected-risk ranking for the Rotterdam baseline.}
+\end{figure}
+```
 
 This ranking alone is not the main inferential object of the paper. It motivates the decision-stability analysis by showing where prioritisation pressure concentrates under a limited intervention budget.
 
 Figure 4 shows the posterior top-k membership structure for the Rotterdam baseline at an approximately 1% prioritisation threshold. The curve separates the asset population into three decision-stability regions: stable high-priority assets, an unstable boundary, and stable low-priority assets.
 
-![Rotterdam decision-stability structure](figures/phase3_decision_stability_structure_RTM.pdf)
+```{=latex}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/phase3_decision_stability_structure_RTM.pdf}
+\caption{Posterior decision-stability structure for the Rotterdam baseline.}
+\end{figure}
+```
 
 The result is not that all risk estimates are certain. The result is more specific: uncertainty affecting prioritisation membership is concentrated near the decision boundary. Most buildings are consistently classified as either inside or outside the prioritised set across posterior draws.
+
+```{=latex}
+\FloatBarrier
+```
 
 ## Decision-stability composition across cities
 
 Figure 5 compares the share of assets in each decision-stability class across Rotterdam, Hamburg, and Donostia--San Sebastián at comparable 1% prioritisation thresholds.
 
-![Decision-stability composition across cities](figures/phase3_certainty_composition_bar.pdf)
+```{=latex}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/phase3_certainty_composition_bar.pdf}
+\caption{Decision-stability composition across the three study areas.}
+\end{figure}
+```
 
 At comparable thresholds, the unstable boundary remains small in all three cities. Rotterdam and Hamburg exhibit almost negligible unstable shares, while Donostia--San Sebastián shows a wider unstable boundary under fixed-specification transfer. Even in the strongest transfer-stress case, however, the unstable set remains below 0.2% of assets at the comparable 1% threshold.
-
-```{=latex}
-\newpage
-```
 
 ## Robustness to hazard perturbation
 
@@ -291,19 +338,19 @@ $$
 
 The following perturbation levels are evaluated:
 
-- $\sigma = 0.00$
-- $\sigma = 0.05$
-- $\sigma = 0.10$
-- $\sigma = 0.20$
-- $\sigma = 0.30$
+* $\sigma = 0.00$
+* $\sigma = 0.05$
+* $\sigma = 0.10$
+* $\sigma = 0.20$
+* $\sigma = 0.30$
 
 | $\sigma$ | Borderline share |
-|---|---:|
-| 0.00 | 1.58% |
-| 0.05 | 1.30% |
-| 0.10 | 1.48% |
-| 0.20 | 1.72% |
-| 0.30 | 1.74% |
+| -------- | ---------------: |
+| 0.00     |            1.58% |
+| 0.05     |            1.30% |
+| 0.10     |            1.48% |
+| 0.20     |            1.72% |
+| 0.30     |            1.74% |
 
 Figure 6 shows that increasing hazard perturbation does not produce diffuse instability across the system. Instead, instability remains concentrated near the prioritisation boundary across all tested perturbation levels.
 
@@ -311,7 +358,7 @@ Figure 6 shows that increasing hazard perturbation does not produce diffuse inst
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.82\textwidth]{figures/fig07_borderline_vs_sigma.pdf}
-\caption{Decision instability under hazard perturbation}
+\caption{Decision instability under hazard perturbation.}
 \end{figure}
 ```
 
@@ -321,45 +368,62 @@ The perturbation experiment therefore supports the interpretation that decision 
 
 The same framework is applied to Hamburg and Donostia--San Sebastián under fixed specification.
 
-To make the transfer comparison interpretable across differently sized cities, the main cross-city comparison uses approximately 1% prioritisation thresholds:
+To make the transfer comparison interpretable across differently sized cities, the main cross-city comparison uses approximately 1% prioritisation thresholds.
 
 ```{=latex}
-\FloatBarrier
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+City & Representative $k$ & Assets & Prioritised share & Borderline share \\
+\midrule
+RTM & 2,213 & 221,324 & 1.00\% & 0.0136\% \\
+HAM & 3,415 & 341,530 & 1.00\% & 0.0164\% \\
+DON & 78 & 7,755 & 1.01\% & 0.1676\% \\
+\bottomrule
+\end{tabular}
+\caption{Cross-city comparison at approximately 1\% prioritisation thresholds.}
+\end{table}
 ```
-
-| City | Representative $k$ | Assets | Prioritised share | Borderline share |
-|---|---:|---:|---:|---:|
-| RTM | 2,213 | 221,324 | 1.00% | 0.0136% |
-| HAM | 3,415 | 341,530 | 1.00% | 0.0164% |
-| DON | 78 | 7,755 | 1.01% | 0.1676% |
 
 Table 1 summarises the main transfer result. Rotterdam and Hamburg exhibit almost negligible borderline share. Donostia--San Sebastián shows a wider unstable boundary under fixed-specification transfer, but even there the unstable boundary remains below 0.2% of assets at the comparable 1% prioritisation threshold.
 
 Figure 7 shows the same comparison using log-scaled rank, which makes the narrow transition region near the prioritisation boundary easier to inspect.
 
-![Cross-city posterior top-k membership structure, log-scaled rank](figures/phase3_cross_city_stability_structure.pdf)
+```{=latex}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/phase3_cross_city_stability_structure.pdf}
+\caption{Cross-city posterior top-k membership structure using log-scaled rank.}
+\end{figure}
+```
 
 Across all three cities, posterior instability remains concentrated near a narrow prioritisation boundary. Rotterdam and Hamburg exhibit highly polarised membership structure, while Donostia--San Sebastián exhibits moderate local broadening of the unstable boundary region consistent with distributional shift.
 
 Figure 8 shows how borderline share evolves across prioritisation thresholds for all three cities.
 
-![Borderline share vs prioritisation threshold](figures/phase3_borderline_share_vs_k.pdf)
+```{=latex}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/phase3_borderline_share_vs_k.pdf}
+\caption{Borderline share as a function of the prioritisation threshold.}
+\end{figure}
+```
 
 Across all evaluated thresholds, instability remains concentrated in a relatively small subset of assets. Donostia--San Sebastián exhibits a wider unstable boundary under fixed-specification transfer, but the overall instability structure remains highly localised relative to the full asset population.
 
-```{=latex}
-\clearpage
-```
-
 ## Spatial structure of posterior decision stability
 
-The following figures show how posterior decision stability manifests spatially across the three study areas under fixed-specification transfer.
+Figure 9 shows the spatial structure of posterior top-k membership probability and local transition regions for Rotterdam, Hamburg, and Donostia--San Sebastián under comparable prioritisation thresholds.
 
-Figure 9 shows the spatial structure of posterior top-k membership probability and local transition structure for Rotterdam, Hamburg, and Donostia--San Sebastián under comparable prioritisation thresholds.
+The spatial comparison illustrates that posterior instability is not spatially diffuse across the urban system. Instead, uncertainty in prioritisation membership remains concentrated within relatively narrow local transition structures separating stable high-priority and stable low-priority assets.
+
+Rotterdam and Hamburg exhibit highly polarised posterior membership distributions with extremely narrow unstable regions. Donostia--San Sebastián exhibits moderate local broadening of the transition structure under fixed-specification transfer, consistent with stronger distributional shift relative to the Rotterdam reference specification.
+
+These spatial figures are not presented as hydraulic validation. Their purpose is methodological: they expose the spatial organisation of posterior-derived decision stability under uncertainty propagation and cross-city transfer.
 
 ```{=latex}
-\clearpage
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.82\textwidth]{figures/RTM_paper_citywide_plus_boundary_zoom.pdf}
 
@@ -371,35 +435,21 @@ Figure 9 shows the spatial structure of posterior top-k membership probability a
 
 \includegraphics[width=0.82\textwidth]{figures/DON_paper_citywide_plus_boundary_zoom.pdf}
 
-\caption{Spatial structure of posterior top-k probability and local transition regions across Rotterdam, Hamburg, and Donostia--San Sebastián. Each row shows the citywide posterior top-k membership probability and a local transition structure near the prioritisation boundary.}
+\caption{Spatial structure of posterior top-k membership probability and local transition regions across Rotterdam, Hamburg, and Donostia--San Sebastián. Each row shows the citywide posterior top-k membership probability together with a local transition region near the prioritisation boundary.}
 \end{figure}
-
 ```
-
-The spatial comparison illustrates that posterior instability is not spatially diffuse across the urban system. Instead, uncertainty in prioritisation membership remains concentrated within relatively narrow local transition structures separating stable high-priority and stable low-priority assets.
-
-Rotterdam and Hamburg exhibit highly polarised posterior membership distributions with extremely narrow unstable regions. Donostia--San Sebastián exhibits moderate local broadening of the transition structure under fixed-specification transfer, consistent with stronger distributional shift relative to the Rotterdam reference specification.
-
-These spatial figures are not presented as hydraulic validation. Their purpose is methodological: they expose the spatial organisation of posterior-derived prioritisation stability under uncertainty propagation and cross-city transfer.
-
 
 ---
 
 # Discussion
 
-This study demonstrates how prioritisation decisions can be analysed as probabilistic objects rather than deterministic rankings.
+This study demonstrates how prioritisation decisions can be analysed as probabilistic objects rather than deterministic rankings. By deriving decision metrics directly from posterior distributions, the proposed framework evaluates not only which assets appear most at risk, but which prioritisation decisions remain reliable under uncertainty.
 
-By deriving decision metrics directly from posterior distributions, the framework evaluates not only which assets appear most at risk, but which prioritisation decisions remain stable under uncertainty propagation.
+Across the baseline, perturbation, and transfer experiments, posterior uncertainty remains concentrated near a relatively narrow decision boundary while most assets exhibit stable prioritisation behaviour across posterior draws. These findings suggest that uncertainty propagation does not necessarily imply diffuse decision instability. Instead, uncertainty can remain localised near prioritisation thresholds, allowing most decisions to remain stable even when predictive uncertainty is substantial.
 
-Across baseline, perturbation, and transfer experiments, posterior uncertainty remains concentrated near a relatively narrow prioritisation boundary while the majority of assets exhibit stable membership behaviour across posterior draws.
+The perturbation experiments further suggest that this concentration of instability is not highly sensitive to moderate changes in the hazard representation. Similarly, the fixed-specification transfer experiments indicate that the overall decision-stability structure may persist under moderate distributional shift, although the width of the unstable boundary varies across cities.
 
-The results suggest that uncertainty propagation does not necessarily imply diffuse decision instability. Instead, posterior uncertainty can concentrate into localised unstable boundary regions near prioritisation thresholds. This distinction matters operationally because uncertainty-aware prioritisation may remain actionable even when predictive uncertainty is substantial.
-
-The perturbation experiments indicate that this concentration of instability is not highly sensitive to moderate perturbation of the hazard representation. Similarly, the transfer experiments suggest that the overall decision-stability structure may persist under moderate distributional shift when the model specification remains fixed.
-
-The present results should not be interpreted as evidence of predictive generalisation across cities. The experiments instead evaluate whether posterior-derived decision behaviour remains structurally stable under fixed-specification transfer.
-
-Likewise, the framework evaluates stability of prioritisation under uncertainty rather than correctness of prioritisation itself. The present framework does not evaluate whether prioritisation decisions are correct in a hydraulic or causal sense. It evaluates the structural stability of prioritisation behaviour conditional on the assumed model specification.
+These findings should not be interpreted as evidence of predictive generalisation or hydraulic validity across study areas. Rather, the experiments evaluate the structural behaviour of posterior-derived decision metrics under a fixed probabilistic specification. The framework therefore assesses the stability of prioritisation decisions conditional on the assumed model, rather than the empirical correctness of the prioritisation itself.
 
 ---
 
@@ -421,13 +471,13 @@ No claims of operational deployment or empirical flood prediction are made.
 
 # Conclusion
 
-This paper presented a Bayesian framework for analysing prioritisation decision stability under uncertainty propagation.
+This paper presented a Bayesian framework for analysing posterior decision stability under uncertainty propagation.
 
 Rather than treating rankings as deterministic outputs, the framework derives posterior-based decision quantities that quantify uncertainty in prioritisation membership itself.
 
 Across baseline, perturbation, and transfer experiments, instability remains concentrated near a narrow prioritisation boundary while most assets exhibit stable prioritisation behaviour under posterior uncertainty. Under comparable 1% prioritisation thresholds, unstable boundary shares remain small across all three evaluated cities, even under fixed-specification transfer.
 
-The contribution is methodological rather than hydraulic. The results demonstrate how posterior inference can be extended from predictive estimation toward explicit analysis of prioritisation stability under uncertainty.
+The contribution is methodological rather than hydraulic. The results demonstrate how posterior inference can be extended from predictive estimation toward explicit analysis of posterior decision stability under uncertainty.
 
 ---
 
