@@ -423,20 +423,46 @@ Rotterdam and Hamburg exhibit highly polarised posterior membership distribution
 These spatial figures are not presented as hydraulic validation. Their purpose is methodological: they expose the spatial organisation of posterior-derived decision stability under uncertainty propagation and cross-city transfer.
 
 ```{=latex}
-\begin{figure}[H]
+\clearpage
+
+\begin{figure}[!p]
 \centering
-\includegraphics[width=0.82\textwidth]{figures/RTM_paper_citywide_plus_boundary_zoom.pdf}
+\includegraphics[width=0.95\textwidth]{figures/RTM_paper_citywide_topk_map.pdf}
 
-\vspace{0.3em}
+\vspace{0.5em}
 
-\includegraphics[width=0.82\textwidth]{figures/HAM_paper_citywide_plus_boundary_zoom.pdf}
+\includegraphics[width=0.82\textwidth]{figures/RTM_paper_boundary_zoom_map.pdf}
 
-\vspace{0.3em}
-
-\includegraphics[width=0.82\textwidth]{figures/DON_paper_citywide_plus_boundary_zoom.pdf}
-
-\caption{Spatial structure of posterior top-k membership probability and local transition regions across Rotterdam, Hamburg, and Donostia--San Sebastián. Each row shows the citywide posterior top-k membership probability together with a local transition region near the prioritisation boundary.}
+\caption{Spatial structure of posterior top-k membership probability and local transition region for Rotterdam. The citywide map shows posterior top-k membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
 \end{figure}
+
+\clearpage
+
+\begin{figure}[!p]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/HAM_paper_citywide_topk_map.pdf}
+
+\vspace{0.5em}
+
+\includegraphics[width=0.82\textwidth]{figures/HAM_paper_boundary_zoom_map.pdf}
+
+\caption{Spatial structure of posterior top-k membership probability and local transition region for Hamburg. The citywide map shows posterior top-k membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!p]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/DON_paper_citywide_topk_map.pdf}
+
+\vspace{0.5em}
+
+\includegraphics[width=0.82\textwidth]{figures/DON_paper_boundary_zoom_map.pdf}
+
+\caption{Spatial structure of posterior top-k membership probability and local transition region for Donostia--San Sebastián. The citywide map shows posterior top-k membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
+\end{figure}
+
+\clearpage
 ```
 
 ---
