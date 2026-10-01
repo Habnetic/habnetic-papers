@@ -141,14 +141,29 @@ The fixed coefficients were chosen to create a deliberately simple and reproduci
 
 Accordingly, the synthetic outcome should not be interpreted as observed flood damage or as a calibrated estimate of empirical flood probability.
 
-
 ## Phase 2 — Hazard perturbation
 
-Robustness is evaluated through controlled perturbation of the hazard proxy.
+Robustness to hazard-input perturbation is evaluated using a fixed random subsample of 50,000 Rotterdam assets and a prioritisation capacity of \(k=500\), corresponding to 1% of the experimental sample. The same assets, exposure values, synthetic outcome realisation, prior specification, and inference procedure are retained across all perturbation runs.
 
-The transformed hazard representation is perturbed with additive Gaussian noise while maintaining the same model structure and inference procedure.
+For perturbation level \(\sigma\), the transformed hazard representation is modified as
 
-The objective is not to simulate physically realistic perturbations, but to evaluate whether instability diffuses across the prioritisation system under perturbed hazard representation.
+\[
+H_{i,r}^{(\sigma)}
+=
+H_i
++
+\sigma s_{H,\mathrm{RTM}} z_{i,r},
+\qquad
+z_{i,r}\sim\mathcal{N}(0,1),
+\]
+
+where \(s_{H,\mathrm{RTM}}\) is the standard deviation of the transformed Rotterdam hazard feature and \(r\) indexes the perturbation realisation. Thus, \(\sigma\) represents perturbation magnitude relative to the observed Rotterdam hazard variability rather than an absolute change in the transformed hazard scale.
+
+The unperturbed condition \(\sigma=0\) is fitted once as the reference case. For each non-zero perturbation level \(\sigma\in\{0.05,0.10,0.20,0.30\}\), 20 perturbation realisations are evaluated. Within each realisation, the same standard-normal perturbation vector is scaled across perturbation levels, producing paired perturbation paths.
+
+The Bayesian model is refitted after every perturbation. Borderline decision instability is defined using \(0.2 < \pi_{i,k} < 0.8\) and reported both relative to the experimental population \(N\) and to prioritisation capacity \(k\). Results across perturbation realisations are summarised using the median and empirical 10th--90th percentiles.
+
+The purpose of the experiment is not to represent physically calibrated hazard uncertainty, but to test whether posterior decision instability remains localised when the hazard representation is progressively perturbed.
 
 ## Phase 3 — Fixed-specification cross-city stress test
 
@@ -166,6 +181,8 @@ No posterior parameter estimates are transferred between cities. Instead, each c
 Feature transformations and scaling parameters derived from Rotterdam are retained as the common reference. Consequently, differences in posterior decision stability across cities arise from differences in the city-level input distributions and resulting fitted posteriors rather than from city-specific model redesign.
 
 The purpose of this experiment is not to test predictive transferability or out-of-sample flood prediction. It tests whether the posterior decision-stability structure persists when the same modelling specification is applied to different urban input distributions.
+
+To characterise cross-city input-distribution differences independently of the resulting decision-stability metrics, the marginal distributions of the exposure and hazard features were compared against the Rotterdam reference. Distribution shift was quantified using the one-dimensional Wasserstein distance. Because the two features operate on different scales, Wasserstein distances were additionally normalised by the corresponding Rotterdam standard deviation. Descriptive statistics, including the median and interquartile range, were retained to make the direction and magnitude of the shifts interpretable.
 
 ---
 
@@ -295,6 +312,14 @@ $$
 
 This quantity forms the primary inferential object of the analysis.
 
+Because exactly \(k\) assets are selected in every posterior draw, top-\(k\) membership probabilities satisfy
+
+\[
+\sum_{i=1}^{N} \pi_{i,k} = k.
+\]
+
+This identity follows directly from the selection rule: each posterior draw contributes exactly \(k\) selected memberships. Consequently, changing the thresholds used to classify assets as stable or unstable does not change the expected total membership mass; it changes only how that probability mass is partitioned into decision-stability classes.
+
 ## Decision stability classes
 
 For a given threshold $k$, each asset is assigned to one of three posterior decision-stability classes using $\pi_{i,k}$:
@@ -316,6 +341,8 @@ $$
 $$
 
 Stable high-priority: the asset is likely to belong to the prioritised set.
+
+The \(0.2/0.8\) thresholds are used as the primary classification convention rather than treated as model-derived cutoffs. Sensitivity to this convention is evaluated using the wider unstable interval \(0.1 < \pi_{i,k} < 0.9\) and the narrower interval \(0.25 < \pi_{i,k} < 0.75\).
 
 ## Borderline share
 
@@ -365,6 +392,36 @@ The result is not that all risk estimates are certain. The result is more specif
 \FloatBarrier
 ```
 
+## Cross-city input-distribution shift
+
+The fixed-specification cross-city stress test is conducted under materially different input distributions. Table 1 summarises the exposure and transformed hazard distributions for each city together with their Wasserstein distances from the Rotterdam reference.
+
+```{=latex}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+City & Feature & Median & IQR & $W_1$ vs RTM & $W_1 / s_{\mathrm{RTM}}$ \\
+\midrule
+RTM & Exposure & -0.085 & [-0.494, 0.400] & -- & -- \\
+HAM & Exposure & -0.074 & [-0.670, 0.667] & 0.186 & 0.22 \\
+DON & Exposure & 0.532 & [-0.058, 1.447] & 0.738 & 0.89 \\
+RTM & Hazard & 0.000 & [-0.005, 0.004] & -- & -- \\
+HAM & Hazard & 0.072 & [0.067, 0.077] & 0.072 & 9.49 \\
+DON & Hazard & 0.607 & [0.597, 0.617] & 0.605 & 79.94 \\
+\bottomrule
+\end{tabular}
+\caption{Cross-city input-distribution shift relative to Rotterdam. $W_1$ denotes the one-dimensional Wasserstein distance and $W_1 / s_{\mathrm{RTM}}$ the same distance normalised by the Rotterdam standard deviation of the corresponding feature.}
+\end{table}
+```
+
+Exposure distributions differ relatively little between Rotterdam and Hamburg, with a normalised Wasserstein distance of 0.22, while Donostia--San Sebastián exhibits a larger exposure shift of 0.89. The transformed hazard proxy differs much more strongly across cities: the normalised Wasserstein distance is 9.49 for Hamburg and 79.94 for Donostia--San Sebastián relative to Rotterdam.
+
+The descriptive distributions show the same pattern. Median transformed hazard is approximately 0.000 in Rotterdam, 0.072 in Hamburg, and 0.607 in Donostia--San Sebastián. Donostia--San Sebastián therefore exhibits the strongest shift in both model inputs, particularly in the hazard representation.
+
+These results establish that the cross-city experiment applies a common model specification to materially different input distributions. They do not establish that distribution shift causes the observed differences in posterior decision stability; the input-distribution comparison and the decision-stability analysis are reported as distinct components of the stress test.
+
 ## Decision-stability composition across cities
 
 Figure 5 compares the share of assets in each decision-stability class across Rotterdam, Hamburg, and Donostia--San Sebastián at comparable 1% prioritisation thresholds.
@@ -381,41 +438,45 @@ At comparable thresholds, the unstable boundary remains small in all three citie
 
 ## Robustness to hazard perturbation
 
-To evaluate whether the observed concentration of instability depends on deterministic hazard specification, controlled perturbations are introduced into the transformed hazard representation:
+Repeated perturbation of the transformed hazard representation produces only limited broadening of the posterior decision boundary.
 
-$$
-H_i^{\text{perturbed}} = H_i + \epsilon_i,
-\quad
-\epsilon_i \sim \mathcal{N}(0, \sigma)
-$$
+The experiment uses a fixed Rotterdam subsample of \(N=50{,}000\) assets and a prioritisation capacity of \(k=500\), corresponding to 1% of the experimental population. The unperturbed reference contains 10 borderline assets, representing 0.0200% of the sample and 2.00% of prioritisation capacity.
 
-The following perturbation levels are evaluated:
+```{=latex}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+$\sigma$ & Reps. & Median count & Median / $N$ & P10--P90 / $N$ & Median / $k$ \\
+\midrule
+0.00 & 1  & 10 & 0.0200\% & --                  & 2.00\% \\
+0.05 & 20 & 10 & 0.0200\% & 0.0200--0.0220\%   & 2.00\% \\
+0.10 & 20 & 10 & 0.0200\% & 0.0200--0.0240\%   & 2.00\% \\
+0.20 & 20 & 11 & 0.0220\% & 0.0200--0.0242\%   & 2.20\% \\
+0.30 & 20 & 11 & 0.0220\% & 0.0196--0.0262\%   & 2.20\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+```
 
-* $\sigma = 0.00$
-* $\sigma = 0.05$
-* $\sigma = 0.10$
-* $\sigma = 0.20$
-* $\sigma = 0.30$
-
-| $\sigma$ | Borderline share |
-| -------- | ---------------: |
-| 0.00     |            1.58% |
-| 0.05     |            1.30% |
-| 0.10     |            1.48% |
-| 0.20     |            1.72% |
-| 0.30     |            1.74% |
-
-Figure 6 shows that increasing hazard perturbation does not produce diffuse instability across the system. Instead, instability remains concentrated near the prioritisation boundary across all tested perturbation levels.
+The median unstable boundary remains unchanged through \(\sigma=0.10\) and increases only slightly at \(\sigma=0.20\) and \(\sigma=0.30\). Variation between individual perturbation realisations increases with perturbation magnitude, but the resulting empirical intervals overlap substantially across all evaluated levels.
 
 ```{=latex}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.82\textwidth]{figures/fig07_borderline_vs_sigma.pdf}
-\caption{Decision instability under hazard perturbation.}
+\includegraphics[width=0.82\textwidth]{figures/fig06_hazard_perturbation_repeated.pdf}
+\caption{Decision instability under repeated hazard perturbation. Thin grey lines show the 20 paired perturbation realisations; the black line shows the median and the shaded band the empirical 10th--90th percentile. The unperturbed case is shown as a single reference fit. \(N=50{,}000\), \(k=500\).}
 \end{figure}
 ```
 
-The perturbation experiment therefore supports the interpretation that decision instability is structurally localised rather than uniformly distributed across the asset population.
+Figure 6 shows that progressively perturbing the hazard input does not generate diffuse decision instability. Even at the largest evaluated perturbation level, the median unstable set contains only 11 assets, corresponding to 0.0220% of the experimental population and 2.20% of prioritisation capacity.
+
+The individual perturbation paths are not uniformly monotonic, indicating that small changes between adjacent perturbation levels depend partly on the particular perturbation realisation. The repeated experiment therefore does not support interpreting the non-monotonic shape of any single perturbation run as structural behaviour.
+
+Across all 81 Bayesian fits, no divergent transitions were observed. The maximum \(\hat{R}\) was approximately 1.004 and the minimum bulk effective sample size was approximately 1,992, indicating stable posterior sampling across the perturbation experiment.
+
+These perturbation results are specific to the fixed 50,000-asset experimental subsample and should not be interpreted as a replacement for the full-city Rotterdam baseline reported in the cross-city comparison.
 
 ## Fixed-specification cross-city stress test
 
@@ -440,7 +501,30 @@ DON & 7,755 & 78 & 13 & 0.1676\% & 16.67\% \\
 \end{table}
 ```
 
-Table 1 summarises the cross-city stress-test result. Rotterdam and Hamburg contain approximately 30 and 56 borderline assets respectively, corresponding to 1.36% and 1.64% of their prioritisation capacities. Donostia--San Sebastián contains only 13 borderline assets in absolute terms, but these represent approximately 16.67% of its much smaller prioritisation capacity of 78 assets. The operational interpretation therefore differs substantially from the citywide borderline share alone.
+Table 2 summarises the cross-city decision-stability result. Rotterdam and Hamburg contain approximately 30 and 56 borderline assets respectively, corresponding to 1.36% and 1.64% of their prioritisation capacities. Donostia--San Sebastián contains only 13 borderline assets in absolute terms, but these represent approximately 16.67% of its much smaller prioritisation capacity of 78 assets. The operational interpretation therefore differs substantially from the citywide borderline share alone.
+
+Sensitivity to the decision-stability thresholds was evaluated at the same approximately 1% prioritisation capacities. Table 3 reports borderline assets relative to \(k\) under three alternative threshold conventions.
+
+```{=latex}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+City & $0.10/0.90$ & $0.20/0.80$ & $0.25/0.75$ \\
+\midrule
+RTM & 48 (2.17\%) & 30 (1.36\%) & 26 (1.17\%) \\
+HAM & 91 (2.66\%) & 56 (1.64\%) & 47 (1.38\%) \\
+DON & 14 (17.95\%) & 13 (16.67\%) & 8 (10.26\%) \\
+\bottomrule
+\end{tabular}
+\caption{Sensitivity of the unstable boundary to alternative decision-stability thresholds at approximately 1\% prioritisation capacity. Entries report borderline asset count with borderline count as a percentage of \(k\) in parentheses.}
+\end{table}
+```
+
+As expected, the wider \(0.1/0.9\) interval classifies more assets as unstable and the narrower \(0.25/0.75\) interval classifies fewer. The qualitative cross-city result is unchanged across all three conventions: Rotterdam and Hamburg retain small unstable sets relative to prioritisation capacity, while Donostia--San Sebastián retains a substantially wider unstable boundary. The magnitude of the Donostia boundary is nevertheless sensitive to the classification convention, declining from 17.95\% of \(k\) under \(0.1/0.9\) to 10.26\% under \(0.25/0.75\).
+
+Sensitivity to prioritisation capacity \(k\) is examined separately in Figure 8.
 
 Figure 7 shows the same comparison using log-scaled rank, which makes the narrow transition region near the prioritisation boundary easier to inspect.
 
@@ -468,56 +552,11 @@ Across all evaluated thresholds, instability remains concentrated in a relativel
 
 ## Spatial structure of posterior decision stability
 
-Figure 9 shows the spatial structure of posterior top-k membership probability and local transition regions for Rotterdam, Hamburg, and Donostia--San Sebastián under comparable prioritisation thresholds.
+The spatial organisation of posterior decision stability is examined for Rotterdam, Hamburg, and Donostia--San Sebastián using citywide posterior top-k membership maps together with local transition-region views.
 
-The spatial comparison illustrates that posterior instability is not spatially diffuse across the urban system. Instead, uncertainty in prioritisation membership remains concentrated within relatively narrow local transition structures separating stable high-priority and stable low-priority assets.
+Across the three study areas, posterior instability is spatially concentrated near relatively narrow transitions between stable high-priority and stable low-priority assets rather than diffused across the urban system. Rotterdam and Hamburg exhibit particularly narrow transition structures, while Donostia--San Sebastián shows greater local broadening under the fixed-specification cross-city stress test.
 
-Rotterdam and Hamburg exhibit highly polarised posterior membership distributions with extremely narrow unstable regions. Donostia--San Sebastián exhibits moderate local broadening of the transition structure under the fixed-specification cross-city stress test.
-
-These spatial figures are not presented as hydraulic validation. Their purpose is methodological: they expose the spatial organisation of posterior-derived decision stability under uncertainty propagation and fixed-specification cross-city stress testing.
-
-```{=latex}
-\clearpage
-
-\begin{figure}[!p]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/RTM_paper_citywide_topk_map.pdf}
-
-\vspace{0.5em}
-
-\includegraphics[width=0.82\textwidth]{figures/RTM_paper_boundary_zoom_map.pdf}
-
-\caption{Spatial structure of posterior top-k membership probability and local transition region for Rotterdam. The citywide map shows posterior top-k membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[!p]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/HAM_paper_citywide_topk_map.pdf}
-
-\vspace{0.5em}
-
-\includegraphics[width=0.82\textwidth]{figures/HAM_paper_boundary_zoom_map.pdf}
-
-\caption{Spatial structure of posterior top-k membership probability and local transition region for Hamburg. The citywide map shows posterior top-k membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[!p]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/DON_paper_citywide_topk_map.pdf}
-
-\vspace{0.5em}
-
-\includegraphics[width=0.82\textwidth]{figures/DON_paper_boundary_zoom_map.pdf}
-
-\caption{Spatial structure of posterior top-k membership probability and local transition region for Donostia--San Sebastián. The citywide map shows posterior top-k membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
-\end{figure}
-
-\clearpage
-```
+The full citywide and local transition maps are provided in Appendix B. These maps are presented as methodological diagnostics of posterior-derived decision stability and should not be interpreted as hydraulic validation.
 
 ---
 
@@ -525,9 +564,9 @@ These spatial figures are not presented as hydraulic validation. Their purpose i
 
 This study demonstrates how prioritisation decisions can be analysed as probabilistic objects rather than deterministic rankings. By deriving decision metrics directly from posterior distributions, the proposed framework evaluates not only which assets appear most at risk, but which prioritisation decisions remain reliable under uncertainty.
 
-Across the baseline, perturbation, and cross-city stress-test experiments, posterior uncertainty remains concentrated near a relatively narrow decision boundary while most assets exhibit stable prioritisation behaviour across posterior draws. These findings suggest that uncertainty propagation does not necessarily imply diffuse decision instability. Instead, uncertainty can remain localised near prioritisation thresholds, allowing most decisions to remain stable even when predictive uncertainty is substantial.
+Across the baseline, repeated hazard-perturbation, and cross-city stress-test experiments, posterior uncertainty remains concentrated near a relatively narrow decision boundary while most assets exhibit stable prioritisation behaviour across posterior draws. These findings suggest that uncertainty propagation does not necessarily imply diffuse decision instability. Instead, uncertainty can remain localised near prioritisation thresholds, allowing most decisions to remain stable even when predictive uncertainty is substantial.
 
-The perturbation experiments further suggest that this concentration of instability is not highly sensitive to moderate changes in the hazard representation. Similarly, the fixed-specification cross-city stress test shows that the overall decision-stability structure persists across the three evaluated urban input distributions, although the width of the unstable boundary varies across cities.
+The repeated hazard-perturbation experiment shows that the unstable boundary remains highly localised under progressively stronger perturbations of the hazard representation. Median borderline membership changes only from 10 assets in the unperturbed reference to 11 assets at the two highest perturbation levels, although variability between perturbation realisations increases with perturbation magnitude. The experiment therefore supports robustness of the overall decision-stability structure while also showing that the detailed trajectory of any single perturbation realisation should not be interpreted as structurally meaningful. Similarly, the fixed-specification cross-city stress test shows that the overall decision-stability structure persists across the three evaluated urban input distributions, despite substantial independently measured differences in the model inputs, particularly in the transformed hazard proxy. The width of the unstable boundary nevertheless varies across cities, and the present experiment does not isolate distribution shift as its causal mechanism.
 
 These findings should not be interpreted as evidence of predictive generalisation or hydraulic validity across study areas. Rather, the experiments evaluate the structural behaviour of posterior-derived decision metrics under a fixed probabilistic specification. The framework therefore assesses the stability of prioritisation decisions conditional on the assumed model, rather than the empirical correctness of the prioritisation itself.
 
@@ -555,7 +594,7 @@ This paper presented a Bayesian framework for analysing posterior decision stabi
 
 Rather than treating rankings as deterministic outputs, the framework derives posterior-based decision quantities that quantify uncertainty in prioritisation membership itself.
 
-Across baseline, perturbation, and cross-city stress-test experiments, instability remains concentrated near a narrow prioritisation boundary while most assets exhibit stable prioritisation behaviour under posterior uncertainty. Under comparable 1% prioritisation thresholds, unstable boundary shares remain small across all three evaluated cities, although their operational importance relative to prioritisation capacity varies substantially.
+Across baseline, repeated hazard-perturbation, and cross-city stress-test experiments, instability remains concentrated near a narrow prioritisation boundary while most assets exhibit stable prioritisation behaviour under posterior uncertainty. Under comparable 1% prioritisation thresholds, unstable boundary shares remain small across all three evaluated cities, although their operational importance relative to prioritisation capacity varies substantially.
 
 The contribution is methodological rather than hydraulic. The results demonstrate how posterior inference can be extended from predictive estimation toward explicit analysis of posterior decision stability under uncertainty.
 
@@ -607,3 +646,48 @@ Building ID & Exposure ($E$) & Hazard mm & Hazard log-rel & damage \\
 ```
 
 The sample is included for transparency only and is not used directly for inference beyond illustrating the asset-level schema consumed by the model.
+
+```{=latex}
+\clearpage
+```
+
+# Appendix B. Spatial decision-stability maps
+
+The following figures provide the full spatial diagnostics for the three study areas. For each city, the upper panel shows citywide posterior top-\(k\) membership probability and the lower panel shows a local transition region near the prioritisation boundary.
+
+```{=latex}
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/RTM_paper_citywide_topk_map.pdf}
+
+\vspace{0.4em}
+
+\includegraphics[width=0.68\textwidth]{figures/RTM_paper_boundary_zoom_map.pdf}
+
+\caption{Spatial structure of posterior top-\(k\) membership probability and local transition region for Rotterdam. The citywide map shows posterior top-\(k\) membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/HAM_paper_citywide_topk_map.pdf}
+
+\vspace{0.4em}
+
+\includegraphics[width=0.68\textwidth]{figures/HAM_paper_boundary_zoom_map.pdf}
+
+\caption{Spatial structure of posterior top-\(k\) membership probability and local transition region for Hamburg. The citywide map shows posterior top-\(k\) membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/DON_paper_citywide_topk_map.pdf}
+
+\vspace{0.4em}
+
+\includegraphics[width=0.68\textwidth]{figures/DON_paper_boundary_zoom_map.pdf}
+
+\caption{Spatial structure of posterior top-\(k\) membership probability and local transition region for Donostia--San Sebastián. The citywide map shows posterior top-\(k\) membership probability; the zoom map shows the local transition region near the prioritisation boundary.}
+\end{figure}
+
+\clearpage
+```
