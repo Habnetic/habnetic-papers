@@ -11,7 +11,7 @@ date: October 2026
 
 Urban risk prioritisation often requires selecting a small subset of assets for inspection, intervention, or further assessment from a much larger portfolio. Risk models may quantify uncertainty in estimated risk, but the operational decision is discrete: which assets fall inside the selected top-k set, and which remain outside it. Uncertainty in estimated risk is therefore not equivalent to uncertainty in the resulting decision.
 
-This paper presents a Bayesian framework for analysing the stability of prioritisation decisions under uncertainty. Rather than treating a ranking as a fixed model output, the framework derives posterior top-k membership probabilities and decision-stability classes directly from posterior draws. This separates assets that are robustly prioritised, assets that are robustly excluded, and a smaller review set whose prioritisation changes under posterior uncertainty.
+This paper presents a Bayesian framework for analysing the stability of prioritisation decisions under uncertainty. Rather than treating a ranking as a fixed model output, the framework uses posterior top-k membership probabilities derived from posterior draws to construct decision-stability classes. This separates assets that are robustly prioritised, assets that are robustly excluded, and a smaller review set whose prioritisation changes under posterior uncertainty.
 
 The framework is evaluated using a deliberately simplified Bayesian logistic model with exposure and pluvial hazard proxies and a synthetic binary outcome. Experiments include a Rotterdam baseline, controlled perturbation of the hazard representation, and a fixed-specification cross-city stress test in Hamburg and Donostia--San Sebastián.
 
@@ -39,7 +39,7 @@ For a prioritisation capacity of \(k\) assets, each posterior draw induces a ran
 
 This distinction matters because uncertainty need not require reviewing the entire asset portfolio. If posterior decision instability is concentrated near the selection boundary, uncertainty analysis can identify a smaller review set while leaving most prioritisation decisions structurally stable.
 
-This paper develops a Bayesian framework for analysing this posterior decision-stability structure. The primary inferential quantity is the top-\(k\) membership probability: the posterior probability that an asset belongs to the selected priority set. From this quantity, the framework derives decision-stability classes and measures the size of the unstable boundary.
+This paper develops a decision-stability framework for fixed-capacity spatial risk prioritisation. The primary inferential quantity is the top-\(k\) membership probability: the posterior probability that an asset belongs to the selected priority set. From this quantity, the framework derives decision-stability classes and measures the size of the unstable boundary.
 
 The objective is methodological rather than predictive. The empirical implementation uses simplified exposure and pluvial hazard proxies together with a synthetic binary outcome in order to isolate the behaviour of the inference-to-decision pipeline. It does not claim hydraulic validation or operational flood prediction.
 
@@ -49,10 +49,25 @@ The framework is evaluated in three stages: a Rotterdam baseline, controlled haz
 
 This paper makes four main contributions:
 
-- A decision-centred Bayesian formulation that separates uncertainty in estimated risk from uncertainty in the resulting prioritisation decision
-- Posterior decision metrics that distinguish robustly prioritised assets, robustly excluded assets, and an uncertain review set around the selection boundary
-- A perturbation experiment evaluating whether decision instability remains localised under changes in hazard representation
-- A fixed-specification cross-city stress test examining whether the resulting decision-stability structure persists across heterogeneous urban contexts
+- A decision-stability formulation for fixed-capacity spatial risk prioritisation in which posterior uncertainty is propagated through the top-\(k\) selection rule rather than summarised only at the level of asset-level risk estimates
+
+- An operational characterisation of the resulting decision boundary using posterior top-\(k\) membership probabilities, distinguishing decisions that remain stable from a smaller review set whose membership is sensitive to posterior uncertainty
+
+- A repeated perturbation experiment evaluating whether the localisation of this decision boundary persists under controlled changes in the hazard representation
+
+- A fixed-specification cross-city stress test examining whether the same decision-stability structure persists across materially different urban input distributions
+
+---
+
+# Related Work
+
+Uncertainty representation and propagation are longstanding concerns in flood-risk modelling. McMillan and Brasington (2008) propagated uncertainty through an end-to-end flood-risk model cascade, illustrating how uncertainty introduced at different stages can affect downstream risk estimates. Hall and Solomatine (2008) extended the problem explicitly into the decision domain, examining how uncertainty in flood-risk analysis can affect the preference ordering of management alternatives. Hall and Harvey (2009) similarly considered decision-making under severe uncertainty using robustness-based analysis. More recently, Mik-Meyer et al. (2026) reviewed uncertainty representation and propagation across flood-risk modelling under climate change, showing that uncertainty treatment remains heterogeneous across model chains and applications.
+
+Bayesian methods are also well established in flood-risk and flood-damage modelling. Hierarchical and multilevel approaches have been used to represent spatial and temporal heterogeneity and to quantify uncertainty in flood-loss relationships (Sairam et al., 2019; Mohor et al., 2021; Lv et al., 2021). Bayesian-network approaches have likewise been applied to urban flood-risk assessment and spatial risk evaluation (Wu et al., 2019, 2020). These studies demonstrate the value of probabilistic inference for flood-risk estimation, but their primary quantities of interest are generally hazard, damage, loss, or risk estimates rather than the stability of a fixed-capacity asset-selection decision.
+
+A separate statistical literature addresses ranking and selection under uncertainty. Berger and Deely (1988) developed a Bayesian approach in which posterior probabilities are used to characterise whether alternatives occupy extreme ranks. Henderson and Newton (2016) considered ranking and selection in large populations, using posterior quantities to improve the expected overlap between true and reported sets of highly ranked units. Eckman and Henderson (2022) further demonstrated how posterior quantities such as the probability of good selection and posterior expected opportunity cost can be used to evaluate the quality of a selection decision. Bowen (2022) considered Bayesian ranking and selection under noisy estimates, including settings in which candidates are classified according to membership in an upper fraction of the population.
+
+The gap addressed here lies in connecting these strands. Flood-risk research has extensively studied uncertainty in hazard, loss, model outputs, and decision alternatives, while Bayesian ranking-and-selection research has developed posterior quantities for uncertain rankings and selections. The present study does not claim novelty for probabilistic ranking or selection itself. Instead, the framework propagates posterior risk uncertainty through a fixed-capacity spatial prioritisation rule and treats asset-level top-\(k\) membership as the decision quantity of interest. The emphasis is not on recovering a globally correct ranking or introducing a new ranking algorithm, but on identifying and quantifying the localised set of assets whose prioritisation can change under posterior uncertainty and testing whether that decision-stability structure persists under controlled input perturbation and fixed-specification cross-city stress testing.
 
 ---
 
@@ -564,7 +579,7 @@ The full citywide and local transition maps are provided in Appendix B. These ma
 
 This study demonstrates how prioritisation decisions can be analysed as probabilistic objects rather than deterministic rankings. By deriving decision metrics directly from posterior distributions, the proposed framework evaluates not only which assets appear most at risk, but which prioritisation decisions remain reliable under uncertainty.
 
-Across the baseline, repeated hazard-perturbation, and cross-city stress-test experiments, posterior uncertainty remains concentrated near a relatively narrow decision boundary while most assets exhibit stable prioritisation behaviour across posterior draws. These findings suggest that uncertainty propagation does not necessarily imply diffuse decision instability. Instead, uncertainty can remain localised near prioritisation thresholds, allowing most decisions to remain stable even when predictive uncertainty is substantial.
+Across the baseline, repeated hazard-perturbation, and cross-city stress-test experiments, posterior uncertainty remains concentrated near a relatively narrow decision boundary while most assets exhibit stable prioritisation behaviour across posterior draws. These findings suggest that uncertainty propagation does not necessarily imply diffuse decision instability. Instead, uncertainty can remain localised near prioritisation thresholds, allowing most decisions to remain stable despite posterior uncertainty in the fitted model.
 
 The repeated hazard-perturbation experiment shows that the unstable boundary remains highly localised under progressively stronger perturbations of the hazard representation. Median borderline membership changes only from 10 assets in the unperturbed reference to 11 assets at the two highest perturbation levels, although variability between perturbation realisations increases with perturbation magnitude. The experiment therefore supports robustness of the overall decision-stability structure while also showing that the detailed trajectory of any single perturbation realisation should not be interpreted as structurally meaningful. Similarly, the fixed-specification cross-city stress test shows that the overall decision-stability structure persists across the three evaluated urban input distributions, despite substantial independently measured differences in the model inputs, particularly in the transformed hazard proxy. The width of the unstable boundary nevertheless varies across cities, and the present experiment does not isolate distribution shift as its causal mechanism.
 
@@ -579,7 +594,7 @@ Several limitations should be noted.
 - The hazard representation is proxy-based and does not model hydraulic flood dynamics.
 - The outcome variable is synthetic and not calibrated against observed damage data.
 - Exposure is represented using simplified hydrographic proximity indicators.
-- The current framework evaluates a single model family with limited prior sensitivity analysis.
+- The current framework evaluates a single model family and a single prior specification; systematic prior-sensitivity analysis is left for future work.
 - The framework does not currently include latent hazard processes or utility-theoretic decision modelling.
 
 These limitations are central to the interpretation of the results. The analysis does not claim operational flood prediction, hydraulic validation, or empirical correctness of the prioritised assets. It isolates the statistical behaviour of posterior-derived prioritisation metrics under a deliberately simplified model.
@@ -602,20 +617,33 @@ The contribution is methodological rather than hydraulic. The results demonstrat
 
 # References
 
-Hall, J. W., & Harvey, H. (2009). Decision making under severe uncertainties for flood risk management: A case study of Info-Gap robustness analysis. *Journal of Flood Risk Management*.
+Hall, J. W., & Harvey, H. (2009). Decision making under severe uncertainty for flood risk management: A case study of Info-Gap robustness analysis. *Proceedings of the 8th International Conference on Hydroinformatics*, Concepción, Chile.
 
-Lv, H., Wu, Z., Guan, X., & Meng, Y. (2021). The construction of flood loss ratio function in cities lacking loss data based on dynamic proportional substitution and hierarchical Bayesian model. *Journal of Hydrology*.
+Hall, J. W., & Solomatine, D. (2008). A framework for uncertainty analysis in flood risk management decisions. *International Journal of River Basin Management*, 6(2), 85–98. https://doi.org/10.1080/15715124.2008.9635339
 
-McMillan, H., & Brasington, J. (2008). End-to-end flood risk assessment: A coupled model cascade with uncertainty estimation. *Water Resources Research*.
+McMillan, H. K., & Brasington, J. (2008). End-to-end flood risk assessment: A coupled model cascade with uncertainty estimation. *Water Resources Research*, 44, W03419. https://doi.org/10.1029/2007WR005995
 
-Mohor, G. S., et al. (2021). Residential flood loss estimated from Bayesian multilevel models. *Natural Hazards and Earth System Sciences*.
+Sairam, N., Schröter, K., Rözer, V., Merz, B., & Kreibich, H. (2019). Hierarchical Bayesian Approach for Modeling Spatiotemporal Variability in Flood Damage Processes. *Water Resources Research*, 55, 8223–8237. https://doi.org/10.1029/2019WR025068
 
-Sairam, N., Schröter, K., Rözer, V., Merz, B., & Kreibich, H. (2019). A Bayesian hierarchical model for flood damage estimation in data-scarce regions. *Water Resources Research*.
+Mohor, G. S., Thieken, A. H., & Korup, O. (2021). Residential flood loss estimated from Bayesian multilevel models. *Natural Hazards and Earth System Sciences*, 21, 1599–1614. https://doi.org/10.5194/nhess-21-1599-2021
 
-Wu, Y., et al. (2019). Assessing urban flood disaster risk using Bayesian network model and GIS applications. *International Journal of River Basin Management*.
+Lv, H., Wu, Z., Guan, X., & Meng, Y. (2021). The construction of flood loss ratio function in cities lacking loss data based on dynamic proportional substitution and hierarchical Bayesian model. *Journal of Hydrology*, 592, 125797. https://doi.org/10.1016/j.jhydrol.2020.125797
 
-Wu, Y., et al. (2020). Urban flood disaster risk evaluation based on ontology and Bayesian Network. *Journal of Hydrology*.
+Wu, Z., Shen, Y., Wang, H., & Wu, M. (2019). Assessing urban flood disaster risk using Bayesian network model and GIS applications. *Geomatics, Natural Hazards and Risk*, 10(1), 2163–2184. https://doi.org/10.1080/19475705.2019.1685010
 
+Wu, Z., Shen, Y., Wang, H., & Wu, M. (2020). Urban flood disaster risk evaluation based on ontology and Bayesian Network. *Journal of Hydrology*, 583, 124596. https://doi.org/10.1016/j.jhydrol.2020.124596
+
+Mik-Meyer, V., Doyle, E. E. H., Larsen, M. A. D., Kool, R., & Drews, M. (2026). Uncertainty Representation and Propagation in Flood Risk Modeling Under Climate Change: A Systematic Review. *WIREs Climate Change*, 17(2), e70045. https://doi.org/10.1002/wcc.70045
+
+Berger, J. O., & Deely, J. (1988). A Bayesian Approach to Ranking and Selection of Related Means with Alternatives to Analysis-of-Variance Methodology. *Journal of the American Statistical Association*, 83(402), 364–373. https://doi.org/10.1080/01621459.1988.10478606
+
+Henderson, N. C., & Newton, M. A. (2016). Making the Cut: Improved Ranking and Selection for Large-Scale Inference. *Journal of the Royal Statistical Society: Series B*, 78(4), 781–804. https://doi.org/10.1111/rssb.12131
+
+Eckman, D. J., & Henderson, S. G. (2022). Posterior-Based Stopping Rules for Bayesian Ranking-and-Selection Procedures. *INFORMS Journal on Computing*, 34(3), 1711–1728. https://doi.org/10.1287/ijoc.2021.1132
+
+Bowen, D. (2022). Bayesian ranking and selection with applications to field studies, economic mobility, and forecasting. *arXiv preprint arXiv:2208.02038*.
+
+---
 
 # Appendix A. Model input sample
 
@@ -633,7 +661,7 @@ The complete processed input tables are stored in:
 \small
 \begin{tabular}{rrrrr}
 \toprule
-Building ID & Exposure ($E$) & Hazard mm & Hazard log-rel & damage \\
+Building ID & Exposure ($E$) & Hazard mm & Hazard log-rel & Synthetic outcome ($Y$) \\
 \midrule
 305012 & -0.033 & 25.422 & -0.00868 & 0 \\
 313960 & 0.238 & 25.419 & -0.00881 & 0 \\
@@ -656,7 +684,7 @@ The sample is included for transparency only and is not used directly for infere
 The following figures provide the full spatial diagnostics for the three study areas. For each city, the upper panel shows citywide posterior top-\(k\) membership probability and the lower panel shows a local transition region near the prioritisation boundary.
 
 ```{=latex}
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.78\textwidth]{figures/RTM_paper_citywide_topk_map.pdf}
 
