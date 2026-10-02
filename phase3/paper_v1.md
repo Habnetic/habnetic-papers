@@ -1,10 +1,17 @@
 ---
 title: Posterior-Based Decision Stability under Cross-City Stress Testing in Urban Flood Risk Prioritisation
 author: |
-  Mikel Martinez Mugica  
-  Independent Researcher  
-  https://habnetic.org
+  \begin{tabular}{c}
+  Mikel Martinez Mugica \\
+  {\small Independent Researcher} \\
+  {\small \href{https://habnetic.org}{https://habnetic.org}} \\
+  {\small Correspondence: \href{mailto:mikel.knowledge@gmail.com}{mikel.knowledge@gmail.com}} \\
+  {\small ORCID: \href{https://orcid.org/0009-0006-5170-4405}{https://orcid.org/0009-0006-5170-4405}} \\[0.7em]
+  {\small\itshape This manuscript is a non-peer-reviewed preprint} \\
+  {\small\itshape submitted to EarthArXiv.}
+  \end{tabular}
 date: October 2026
+
 ---
 
 # Abstract
@@ -612,6 +619,19 @@ Rather than treating rankings as deterministic outputs, the framework derives po
 Across baseline, repeated hazard-perturbation, and cross-city stress-test experiments, instability remains concentrated near a narrow prioritisation boundary while most assets exhibit stable prioritisation behaviour under posterior uncertainty. Under comparable 1% prioritisation thresholds, unstable boundary shares remain small across all three evaluated cities, although their operational importance relative to prioritisation capacity varies substantially.
 
 The contribution is methodological rather than hydraulic. The results demonstrate how posterior inference can be extended from predictive estimation toward explicit analysis of posterior decision stability under uncertainty.
+
+---
+
+# Code and Data Availability
+
+Code, analysis scripts, and processed model-input tables used in this study are publicly available at
+https://github.com/Habnetic/resilient-housing-bayes.
+
+Processed source data and supporting data products are available at
+https://github.com/Habnetic/data.
+
+Additional project documentation is available at
+https://github.com/Habnetic/docs.
 
 ---
 
