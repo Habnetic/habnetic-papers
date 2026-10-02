@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.5)  2 OCT 2026 20:43
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.5)  2 OCT 2026 23:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,75 +1115,75 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
  [2] [3] [4] [5]
 File: figures/fig01_graphical_model.pdf Graphic file (type pdf)
 <use figures/fig01_graphical_model.pdf>
- [6] [7]
-Underfull \hbox (badness 1817) in paragraph at lines 463--465
+ [6] [7] [8]
+Underfull \hbox (badness 1817) in paragraph at lines 484--486
 \TU/lmr/m/n/10 The Rotterdam specification is applied independently to Hamburg 
 and
  []
 
-[8] [9]
+[9] [10]
 File: figures/fig_prior_predictive_event_rate.pdf Graphic file (type pdf)
 <use figures/fig_prior_predictive_event_rate.pdf>
- [10] [11] [12]
-Underfull \hbox (badness 2486) in paragraph at lines 756--756
+ [11] [12]
+Underfull \hbox (badness 2486) in paragraph at lines 777--777
 []\TU/lmr/bx/n/12 Baseline risk concentration and decision-stability
  []
 
+[13]
 File: figures/phase3_expected_risk_ranking_RTM.pdf Graphic file (type pdf)
 <use figures/phase3_expected_risk_ranking_RTM.pdf>
-[13]
 File: figures/phase3_decision_stability_structure_RTM.pdf Graphic file (type pd
 f)
 <use figures/phase3_decision_stability_structure_RTM.pdf>
  [14]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 805.
+(Font)              scaled to size 9.0pt on input line 826.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 805.
+(Font)              scaled to size 9.00082pt on input line 826.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 805.
+(Font)              scaled to size 8.99904pt on input line 826.
+ [15]
 File: figures/phase3_certainty_composition_bar.pdf Graphic file (type pdf)
 <use figures/phase3_certainty_composition_bar.pdf>
- [15]
+ [16]
 File: figures/fig06_hazard_perturbation_repeated.pdf Graphic file (type pdf)
 <use figures/fig06_hazard_perturbation_repeated.pdf>
- [16] [17]
+ [17] [18]
 File: figures/phase3_cross_city_stability_structure.pdf Graphic file (type pdf)
 
 <use figures/phase3_cross_city_stability_structure.pdf>
- [18]
 File: figures/phase3_borderline_share_vs_k.pdf Graphic file (type pdf)
 <use figures/phase3_borderline_share_vs_k.pdf>
  [19] [20] [21]
-Underfull \hbox (badness 2698) in paragraph at lines 1151--1153
+Underfull \hbox (badness 2698) in paragraph at lines 1172--1174
 []\TU/lmr/m/n/10 Processed source data and supporting data products are availab
 le at
  []
 
 
-Overfull \hbox (16.24002pt too wide) in paragraph at lines 1154--1156
+Overfull \hbox (16.24002pt too wide) in paragraph at lines 1175--1177
 []\TU/lmr/m/n/10 Additional project documentation is available at https://githu
 b.com/Habnetic/docs. 
  []
 
-
-Underfull \hbox (badness 1888) in paragraph at lines 1176--1180
+[22]
+Underfull \hbox (badness 1888) in paragraph at lines 1200--1204
 \TU/lmr/m/n/10 Hierarchical Bayesian Approach for Modeling Spatiotemporal Varia
 bility
  []
 
-[22]
-Overfull \hbox (22.05737pt too wide) in paragraph at lines 1192--1196
+
+Overfull \hbox (22.05737pt too wide) in paragraph at lines 1216--1220
 \TU/lmr/m/it/10 Hazards and Risk\TU/lmr/m/n/10 , 10(1), 2163–2184. https://doi.
 org/10.1080/19475705.2019.1685010 
  []
 
-
-Overfull \hbox (15.29416pt too wide) in paragraph at lines 1248--1259
+[23]
+Overfull \hbox (15.29416pt too wide) in paragraph at lines 1282--1293
  [][] 
  []
 
-[23] [24]
+[24]
 File: figures/RTM_paper_citywide_topk_map.pdf Graphic file (type pdf)
 <use figures/RTM_paper_citywide_topk_map.pdf>
 File: figures/RTM_paper_boundary_zoom_map.pdf Graphic file (type pdf)
@@ -1207,7 +1207,7 @@ L3 programming layer <2025-12-24>
 Here is how much of TeX's memory you used:
  19690 strings out of 402987
  362913 string characters out of 5448111
- 940728 words of memory out of 5000000
+ 940857 words of memory out of 5000000
  48154 multiletter control sequences out of 15000+600000
  635133 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

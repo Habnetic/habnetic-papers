@@ -2,13 +2,13 @@
 title: Posterior-Based Decision Stability under Cross-City Stress Testing in Urban Flood Risk Prioritisation
 author: |
   \begin{tabular}{c}
-  Mikel Martinez Mugica \\
+  Mikel Martínez Mugica \\
   {\small Independent Researcher} \\
   {\small \href{https://habnetic.org}{https://habnetic.org}} \\
   {\small Correspondence: \href{mailto:mikel.knowledge@gmail.com}{mikel.knowledge@gmail.com}} \\
-  {\small ORCID: \href{https://orcid.org/0009-0006-5170-4405}{https://orcid.org/0009-0006-5170-4405}} \\[0.7em]
-  {\small\itshape This manuscript is a non-peer-reviewed preprint} \\
-  {\small\itshape submitted to EarthArXiv.}
+  {\small ORCID: \href{https://orcid.org/0009-0006-5170-4405}{https://orcid.org/0009-0006-5170-4405}} \\
+  {\small DOI: \href{https://doi.org/10.5281/zenodo.23110714}{https://doi.org/10.5281/zenodo.23110714}} \\[0.7em]
+  {\small\itshape This manuscript is a non-peer-reviewed preprint.}
   \end{tabular}
 date: October 2026
 
@@ -74,7 +74,13 @@ Bayesian methods are also well established in flood-risk and flood-damage modell
 
 A separate statistical literature addresses ranking and selection under uncertainty. Berger and Deely (1988) developed a Bayesian approach in which posterior probabilities are used to characterise whether alternatives occupy extreme ranks. Henderson and Newton (2016) considered ranking and selection in large populations, using posterior quantities to improve the expected overlap between true and reported sets of highly ranked units. Eckman and Henderson (2022) further demonstrated how posterior quantities such as the probability of good selection and posterior expected opportunity cost can be used to evaluate the quality of a selection decision. Bowen (2022) considered Bayesian ranking and selection under noisy estimates, including settings in which candidates are classified according to membership in an upper fraction of the population.
 
-The gap addressed here lies in connecting these strands. Flood-risk research has extensively studied uncertainty in hazard, loss, model outputs, and decision alternatives, while Bayesian ranking-and-selection research has developed posterior quantities for uncertain rankings and selections. The present study does not claim novelty for probabilistic ranking or selection itself. Instead, the framework propagates posterior risk uncertainty through a fixed-capacity spatial prioritisation rule and treats asset-level top-\(k\) membership as the decision quantity of interest. The emphasis is not on recovering a globally correct ranking or introducing a new ranking algorithm, but on identifying and quantifying the localised set of assets whose prioritisation can change under posterior uncertainty and testing whether that decision-stability structure persists under controlled input perturbation and fixed-specification cross-city stress testing.
+The decision-stability formulation used in the present research was developed by the author and documented in a Phase 1 manuscript in March 2026 (Martínez Mugica, 2026). That manuscript already treated prioritisation stability as a primary inferential object and implemented posterior top-\(k\) membership probabilities together with a borderline decision region for urban flood-risk prioritisation. The present study extends that earlier implementation through repeated hazard perturbation, sensitivity analysis of decision-stability thresholds, and fixed-specification cross-city stress testing.
+
+Subsequent work by Xu et al. (2026) also uses posterior top-\(k\) membership probabilities in a Bayesian ranking setting. Their work addresses top-\(k\) identification from noisy and potentially biased pairwise comparisons and uses posterior membership uncertainty within a top-\(k\)-aware active comparison-acquisition framework. Although the posterior membership quantity is closely related, the inferential and operational objectives differ: the present framework uses posterior top-\(k\) membership to characterise the stability of fixed-capacity spatial risk decisions under fitted-model uncertainty, controlled input perturbation, and fixed-specification cross-city stress testing.
+
+The gap addressed here therefore lies in connecting uncertainty propagation in spatial risk modelling with posterior decision stability under a fixed-capacity selection rule. The present study does not claim novelty for probabilistic ranking or selection itself. Its contribution is to treat asset-level top-\(k\) membership as the operational decision quantity in fixed-capacity spatial risk prioritisation, identify and quantify the localised set of assets whose prioritisation can change under posterior uncertainty, and test whether that decision-stability structure persists under controlled input perturbation and fixed-specification cross-city stress testing.
+
+To our knowledge, we are not aware of prior work that applies posterior top-\(k\) membership probabilities specifically to the analysis of decision stability in fixed-capacity urban spatial risk prioritisation.
 
 ---
 
@@ -633,6 +639,9 @@ https://github.com/Habnetic/data.
 Additional project documentation is available at
 https://github.com/Habnetic/docs.
 
+Earlier research manuscripts documenting the development of the framework are available at
+https://github.com/Habnetic/habnetic-papers.
+
 ---
 
 # References
@@ -662,6 +671,10 @@ Henderson, N. C., & Newton, M. A. (2016). Making the Cut: Improved Ranking and S
 Eckman, D. J., & Henderson, S. G. (2022). Posterior-Based Stopping Rules for Bayesian Ranking-and-Selection Procedures. *INFORMS Journal on Computing*, 34(3), 1711–1728. https://doi.org/10.1287/ijoc.2021.1132
 
 Bowen, D. (2022). Bayesian ranking and selection with applications to field studies, economic mobility, and forecasting. *arXiv preprint arXiv:2208.02038*.
+
+Martínez Mugica, M. (2026, March). Posterior-Based Decision Stability in Urban Flood Risk Prioritisation. Phase 1 research manuscript, Habnetic. [Available online](https://github.com/Habnetic/habnetic-papers/blob/master/phase1_rtm_decision_stability/phase1_rtm_decision_stability.pdf)
+
+Xu, J., Zeng, D., Paisley, J., & Zhao, Q. (2026). When Can You Debias an LLM Judge? Identifiability Limits, a Test, and Designs for Top-k Ranking. *arXiv preprint arXiv:2607.02104*. https://doi.org/10.48550/arXiv.2607.02104
 
 ---
 
