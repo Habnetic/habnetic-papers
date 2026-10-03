@@ -1,0 +1,19 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary Pandoc / LaTeX media folders
+media-*/
+
+# Editor files
+.vscode/
+*.swp
