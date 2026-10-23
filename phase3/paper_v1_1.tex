@@ -80,7 +80,7 @@ Mikel Martínez Mugica \\
 {\small \href{https://habnetic.org}{https://habnetic.org}} \\
 {\small Correspondence: \href{mailto:mikel.knowledge@gmail.com}{mikel.knowledge@gmail.com}} \\
 {\small ORCID: \href{https://orcid.org/0009-0006-5170-4405}{https://orcid.org/0009-0006-5170-4405}} \\
-{\small DOI: \href{https://doi.org/10.5281/zenodo.23110714}{https://doi.org/10.5281/zenodo.23110714}} \\[0.7em]
+{\small DOI: \href{https://doi.org/10.5281/zenodo.23599344}{https://doi.org/10.5281/zenodo.23599344}} \\[0.7em]
 {\small\itshape This manuscript is a non-peer-reviewed preprint.}
 \end{tabular}}
 \date{October 2026}
@@ -1272,11 +1272,22 @@ https://github.com/Habnetic/docs.
 Earlier research manuscripts documenting the development of the
 framework are available at https://github.com/Habnetic/habnetic-papers.
 
-These links identify evolving repositories rather than a frozen archival
-snapshot. The present manuscript does not provide commit identifiers and
-input-file checksums sufficient for byte-for-byte reproduction; a
-versioned code-and-data release is needed for that stronger
-reproducibility claim.
+A subsequent Phase 4 M0 reproducibility audit re-executed the Rotterdam
+baseline using code commit \texttt{5e19254}. The audit reproduced the
+221,324-building dataset and achieved 100\% overlap with the original
+top-\(k\) selection at \(k=2{,}213\). Minor differences remained in
+posterior parameter estimates and the stability classifications of two
+assets. The audit is documented in the Habnetic documentation repository
+(commit \texttt{2ec70fb}). It did not constitute a complete end-to-end
+reproduction of the Phase 2 perturbation experiments or the independent
+Hamburg and Donostia--San Sebastián fits.
+
+The repositories referenced above are evolving resources rather than a
+complete frozen archival snapshot. Although the Rotterdam
+reproducibility audit identifies a specific code revision, a fully
+versioned release of all experimental inputs and associated checksums
+would be required to support byte-for-byte reproduction of every
+experiment.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
